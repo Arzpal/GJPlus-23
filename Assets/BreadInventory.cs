@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 public class BreadInventory : MonoBehaviour
 {
-    [SerializeField] private Canvas canva;
+    [SerializeField] private GameObject canva;
+    [SerializeField] private GameObject canvaPadre;
     [SerializeField] private RectTransform breadInv;
     [SerializeField] private float moveAmount = 400f;
     [SerializeField] private TMP_Text text;
@@ -16,12 +17,9 @@ public class BreadInventory : MonoBehaviour
     [SerializeField] private List<RectTransform> positions;
     [SerializeField] private List<Image> prefabs;
     [SerializeField] private List<int> quantitys;
+    [SerializeField] private List<Image> actualImages;
     public int thisbread;
-
-    private void Start()
-    {
-        throw new NotImplementedException();
-    }
+    
 
     public void movePanel()
     {
@@ -46,11 +44,17 @@ public class BreadInventory : MonoBehaviour
         open = false;
     }
 
-    public void GrabbedBread(int type)
+    public void GrabbedBread(int type, Image obj)
     {
-        Image nuevoObjetoHijo = Instantiate(prefabs[type], canva.transform, true);
-        nuevoObjetoHijo.rectTransform.position = positions[type].position;
-        quantitys[type] --;
-        positions[type].GetComponentInChildren<TMP_Text>().text = "x " + quantitys[type];
+        if (obj == actualImages[type])
+        {
+            actualImages[type].transform.SetParent(canvaPadre.transform);
+            Image nuevoObjetoHijo = Instantiate(prefabs[type], canva.transform, true);
+            actualImages[type] = nuevoObjetoHijo;
+            nuevoObjetoHijo.rectTransform.position = positions[type].position;
+            quantitys[type] --;
+            positions[type].GetComponentInChildren<TMP_Text>().text = "x " + quantitys[type];
+        }
+        
     }
 }
