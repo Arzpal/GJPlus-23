@@ -32,6 +32,7 @@ public class ItemSlot : MonoBehaviour
         price -= other.GetComponent<DragDrop>().price;
     }
 
+    
     public List<int> getVentas()
     {
         return ventas;
