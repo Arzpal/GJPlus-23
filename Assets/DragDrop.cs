@@ -16,6 +16,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     [SerializeField] private string canvasName;
     [SerializeField] public int breadtype;
     private CanvasGroup cg;
+    [SerializeField] public int price;
     private void Awake()
     {
         rt = GetComponent<RectTransform>();

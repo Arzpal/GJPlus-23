@@ -97,6 +97,7 @@ MonoBehaviour:
   fallingSpeedMax: 1.2
   canvasName: Canvas
   breadtype: 2
+  price: 1
 --- !u!225 &-4631404863786845425
 CanvasGroup:
   m_ObjectHideFlags: 0

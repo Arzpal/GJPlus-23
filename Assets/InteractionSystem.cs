@@ -3,23 +3,14 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+[System.Serializable]
 
-public class InteractionSystem : MonoBehaviour
+public class InteractionSystem
 {
-    [SerializeField] private string text;
-    [SerializeField] private int price;
-    [SerializeField] private Image persona;
-    [SerializeField] private List<int> panesAceptados;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public List<string> dialogos;
+    public int price;
+    public Image persona;
+    public List<int> panesAceptados;
+    public string goodEnding;
+    public string badEnding;
 }
