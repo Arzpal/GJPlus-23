@@ -11,9 +11,22 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     private RectTransform rt;
     private bool falling = false;
     [SerializeField] private float fallingSpeed = 0.2f;
+    [SerializeField] private string canvasName;
+    [SerializeField] private int breadtype;
     private void Awake()
     {
         rt = GetComponent<RectTransform>();
+        Canvas canvasEncontrado = GameObject.Find(canvasName)?.GetComponent<Canvas>();
+        
+        if (canvasEncontrado != null)
+        {
+            Debug.Log("Canvas encontrado: " + canvasEncontrado.name);
+            canvas = canvasEncontrado;
+        }
+        else
+        {
+            Debug.LogWarning("Canvas no encontrado: " + canvasName);
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -23,7 +36,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("OnPointerDown");
+        canvas.GetComponentInChildren<BreadInventory>().GrabbedBread(breadtype);
     }
 
     public void OnEndDrag(PointerEventData eventData)
