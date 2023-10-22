@@ -131,19 +131,20 @@ public class ShopManager : MonoBehaviour
         {
             StartCoroutine(MostrarTextoLentamente());
         }
-
+        
         textaux++;
     }
     
     private IEnumerator MostrarTextoLentamente()
     {
         text.text = "";
-
+        botones[1].interactable = false;
         foreach (char letra in actual.dialogos[textaux])
         {
             text.text += letra; 
             yield return new WaitForSeconds(0.1f);
         }
+        botones[1].interactable = true;
     }
     
     //cuando se da click al cofre finaliza la venta, este es más complicado
