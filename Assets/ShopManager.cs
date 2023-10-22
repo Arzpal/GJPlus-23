@@ -24,7 +24,10 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private List<Dias> dias;
     [SerializeField] private Image diezmo;
     [SerializeField] private List<Button> botones;
-    [SerializeField] private Slider s;
+    [SerializeField] private Image s;
+    [SerializeField] private Button buybutton;
+    [SerializeField] private Sprite close;
+    [SerializeField] private Sprite open;
 
 
 
@@ -127,7 +130,7 @@ public class ShopManager : MonoBehaviour
             boton.interactable = false;
         }
         bool todosEnB = true;
-
+        
         foreach (int valorA in actual.panesAceptados)
         {
             bool encontrado = false;
@@ -152,11 +155,32 @@ public class ShopManager : MonoBehaviour
             text.text = actual.goodEnding;
             if (actual.nobleza) // hacer algo bueno para la nobleza <--
             {
-                s.value -= moralpoints;
+                s.rectTransform.Rotate(Vector3.forward, 15);
             }
             else
             {
-                s.value += moralpoints;
+                s.rectTransform.Rotate(Vector3.forward, -15);
+            }
+            if (impuestos.isOn)
+            {
+                int taxes=0;
+                for (int i = 0; i < actual.panesAceptados.Count; i++)
+                {
+                    switch (actual.panesAceptados[i])
+                    {
+                        case 0:
+                            taxes += 3;
+                            break;
+                        case 1:
+                            taxes += 2;
+                            break;
+                        case 2:
+                            taxes += 1;
+                            break;
+                    }
+                }
+                precio.text = $"{precioaux + taxes}";
+                precioaux += taxes;
             }
         }
         else
@@ -164,11 +188,32 @@ public class ShopManager : MonoBehaviour
             text.text = actual.badEnding;
             if (actual.nobleza)// hacer algo malo para la nobleza -->
             {
-                s.value += moralpoints;
+                s.rectTransform.Rotate(Vector3.forward, -15);
             }
             else
             {
-                s.value -= moralpoints;
+                s.rectTransform.Rotate(Vector3.forward, 15);
+            }
+            if (impuestos.isOn)
+            {
+                int taxes=0;
+                for (int i = 0; i < bandeja.getVentas().Count; i++)
+                {
+                    switch (bandeja.getVentas()[i])
+                    {
+                        case 0:
+                            taxes += 3;
+                            break;
+                        case 1:
+                            taxes += 2;
+                            break;
+                        case 2:
+                            taxes += 1;
+                            break;
+                    }
+                }
+                precio.text = $"{precioaux + taxes}";
+                precioaux += taxes;
             }
         }
         
@@ -182,27 +227,6 @@ public class ShopManager : MonoBehaviour
             precioaux += bandeja.price;
         }
 
-        if (impuestos.isOn)
-        {
-            int taxes=0;
-            for (int i = 0; i < actual.panesAceptados.Count; i++)
-            {
-                switch (actual.panesAceptados[i])
-                {
-                    case 0:
-                        taxes += 3;
-                        break;
-                    case 1:
-                        taxes += 2;
-                        break;
-                    case 2:
-                        taxes += 1;
-                        break;
-                }
-            }
-            precio.text = $"{precioaux + taxes}";
-            precioaux += taxes;
-        }
         StartCoroutine(MoverImagenSaliente());
         
         for (int i = 0; i < bandeja.objetos.Count;)
@@ -297,9 +321,9 @@ public class ShopManager : MonoBehaviour
             if (impuestos.isOn)
             {
                 int taxes=0;
-                for (int i = 0; i < actual.panesAceptados.Count; i++)
+                for (int i = 0; i < bandeja.getVentas().Count; i++)
                 {
-                    switch (actual.panesAceptados[i])
+                    switch (bandeja.getVentas()[i])
                     {
                         case 0:
                             taxes += 3;
@@ -313,6 +337,7 @@ public class ShopManager : MonoBehaviour
                     }
                 }
                 precio.text = $"{Int32.Parse(precio.text) + taxes}";
+                Debug.Log(taxes + "primer if");
             }
         }
         else
@@ -337,18 +362,23 @@ public class ShopManager : MonoBehaviour
                     }
                 }
                 precio.text = $"{Int32.Parse(precio.text) + taxes}";
+                Debug.Log(taxes + "else");
             }
+            
         }
 
         
 
-        if (precioaux == 0)
+        if (Int32.Parse(precio.text) == 0)
         {
             vender.text = "No vender";
+            buybutton.GetComponent<Image>().sprite = close;
         }
         else
         {
-            vender.text = "Vender";
+            vender.text = "";
+            buybutton.GetComponent<Image>().sprite = open;
         }
+        
     }
 }
