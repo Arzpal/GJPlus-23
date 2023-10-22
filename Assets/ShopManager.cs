@@ -356,10 +356,6 @@ public class ShopManager : MonoBehaviour
         precioaux -= costo;
         dinero.text = $"{precioaux}";
         
-        if (precioaux <= 0)
-        {
-            RealizarFade("Perdiste");
-        }
         
         textPanel.SetActive(true);
         if (textaux < actual.dialogos.Count)
@@ -387,6 +383,8 @@ public class ShopManager : MonoBehaviour
             yield return null;
         }
         // se llama al inicio del loop de nuevo
+        
+        personasaux = 0;
         PersonasStart();
     }
     
@@ -417,7 +415,6 @@ public class ShopManager : MonoBehaviour
                     }
                 }
                 precio.text = $"{Int32.Parse(precio.text) + taxes}";
-                Debug.Log(taxes + "primer if");
             }
         }
         else
@@ -442,7 +439,6 @@ public class ShopManager : MonoBehaviour
                     }
                 }
                 precio.text = $"{Int32.Parse(precio.text) + taxes}";
-                Debug.Log(taxes + "else");
             }
             
         }
