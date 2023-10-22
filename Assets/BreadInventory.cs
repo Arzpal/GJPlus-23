@@ -50,6 +50,8 @@ public class BreadInventory : MonoBehaviour
         {
             actualImages[type].transform.SetParent(canvaPadre.transform);
             Image nuevoObjetoHijo = Instantiate(prefabs[type], canva.transform, true);
+            float scaleReadjust = 1 / canva.transform.localScale.x;
+            nuevoObjetoHijo.transform.localScale = Vector3.one * scaleReadjust;
             actualImages[type] = nuevoObjetoHijo;
             nuevoObjetoHijo.rectTransform.position = positions[type].position;
             quantitys[type] --;
