@@ -23,7 +23,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private GameObject obispotext;
     [SerializeField] private List<Dias> dias;
     [SerializeField] private Image diezmo;
-    [SerializeField] private List<Image> diezmoEmocions;
+    [SerializeField] private List<Sprite> diezmoEmocions;
     [SerializeField] private List<Button> botones;
     [SerializeField] private Image s;
     [SerializeField] private Button buybutton;
@@ -92,7 +92,7 @@ public class ShopManager : MonoBehaviour
         {
             Debug.Log(personasaux);
             actual = dias[diasaux].dia[personasaux];
-            basePersona.sprite = actual.personas[0].sprite;
+            basePersona.sprite = actual.personas[0];
             StartCoroutine(MoverImagenEntrante());
         }
         else
@@ -181,7 +181,7 @@ public class ShopManager : MonoBehaviour
         if (todosEnB)
         {
             text.text = actual.goodEnding;
-            basePersona.sprite = actual.personas[1].sprite;
+            basePersona.sprite = actual.personas[1];
             if (actual.nobleza) 
             {
                 s.rectTransform.Rotate(Vector3.forward, -15);
@@ -217,7 +217,7 @@ public class ShopManager : MonoBehaviour
         {
             // si no los encuentra, bad ending y suma todas las taxes de la bandeja
             text.text = actual.badEnding;
-            basePersona.sprite = actual.personas[2].sprite;
+            basePersona.sprite = actual.personas[2];
             if (actual.nobleza)// hacer algo malo para la nobleza -->
             {
                 s.rectTransform.Rotate(Vector3.forward, 15);
@@ -334,7 +334,7 @@ public class ShopManager : MonoBehaviour
     // es como una persona normal pero este te cobra el diezmo sin que puedas hacer nada, basicamente te roba
     public IEnumerator CobrarDiezmo(int costo)
     {
-        diezmo.sprite = diezmoEmocions[0].sprite;
+        diezmo.sprite = diezmoEmocions[0];
         float t = 0;
         while (t < 1)
         {
@@ -360,12 +360,12 @@ public class ShopManager : MonoBehaviour
         textPanel.SetActive(false);
         if (precioaux <= 0)
         {
-            diezmo.sprite = diezmoEmocions[2].sprite;
+            diezmo.sprite = diezmoEmocions[2];
             RealizarFade("Perdiste");
         }
         else
         {
-            diezmo.sprite = diezmoEmocions[1].sprite;
+            diezmo.sprite = diezmoEmocions[1];
         }
         
         t = 0;

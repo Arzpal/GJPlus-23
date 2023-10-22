@@ -3843,7 +3843,10 @@ MonoBehaviour:
       - quiero felicitarte xq eres el ganador de los 2000 dolal
       - felicidades
       price: 15
-      persona: {fileID: 5215322073025047588, guid: 85cca6bda0849864199d999ab0a5e805, type: 3}
+      personas:
+      - {fileID: 370114219, guid: 2dcdbfc8b48b561498718f40649c6ef5, type: 3}
+      - {fileID: -892642701, guid: 2dcdbfc8b48b561498718f40649c6ef5, type: 3}
+      - {fileID: 1009908819, guid: 2dcdbfc8b48b561498718f40649c6ef5, type: 3}
       panesAceptados: 000000000000000000000000
       goodEnding: grac bro
       badEnding: que te pasa bro
@@ -3854,7 +3857,10 @@ MonoBehaviour:
       - quiero felicitarte xq eres el ganador de los 2000 dolal
       - felicidades
       price: 15
-      persona: {fileID: 5215322073025047588, guid: 85cca6bda0849864199d999ab0a5e805, type: 3}
+      personas:
+      - {fileID: -303746212, guid: cd2a440c5764c314aa41a6ad1d6d6f1d, type: 3}
+      - {fileID: -46820309, guid: cd2a440c5764c314aa41a6ad1d6d6f1d, type: 3}
+      - {fileID: -1753127701, guid: cd2a440c5764c314aa41a6ad1d6d6f1d, type: 3}
       panesAceptados: 000000000000000000000000
       goodEnding: grac bro
       badEnding: que te pasa bro
@@ -3866,7 +3872,10 @@ MonoBehaviour:
       - quiero felicitarte xq eres el ganador de los 2000 dolal
       - felicidades
       price: 15
-      persona: {fileID: 5215322073025047588, guid: 85cca6bda0849864199d999ab0a5e805, type: 3}
+      personas:
+      - {fileID: 781916898, guid: 6f2eecbae5ae9014f8a4ef1cad8070cb, type: 3}
+      - {fileID: 1142902555, guid: 6f2eecbae5ae9014f8a4ef1cad8070cb, type: 3}
+      - {fileID: 718072630, guid: 6f2eecbae5ae9014f8a4ef1cad8070cb, type: 3}
       panesAceptados: 000000000000000000000000
       goodEnding: grac bro
       badEnding: que te pasa bro
@@ -3877,12 +3886,19 @@ MonoBehaviour:
       - quiero felicitarte xq eres el ganador de los 2000 dolal
       - felicidades
       price: 15
-      persona: {fileID: 5215322073025047588, guid: 85cca6bda0849864199d999ab0a5e805, type: 3}
+      personas:
+      - {fileID: 370114219, guid: 2dcdbfc8b48b561498718f40649c6ef5, type: 3}
+      - {fileID: -892642701, guid: 2dcdbfc8b48b561498718f40649c6ef5, type: 3}
+      - {fileID: 1009908819, guid: 2dcdbfc8b48b561498718f40649c6ef5, type: 3}
       panesAceptados: 000000000000000000000000
       goodEnding: grac bro
       badEnding: que te pasa bro
       nobleza: 0
   diezmo: {fileID: 2033698553}
+  diezmoEmocions:
+  - {fileID: -1501713343, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
+  - {fileID: 523533682, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
+  - {fileID: -846073766, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
   botones:
   - {fileID: 711891642}
   - {fileID: 831436660}
