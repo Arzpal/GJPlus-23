@@ -126,12 +126,23 @@ public class ShopManager : MonoBehaviour
         textPanel.SetActive(true);
         if (textaux < actual.dialogos.Count)
         {
-            text.text = actual.dialogos[textaux];
+            StartCoroutine(MostrarTextoLentamente());
         }
 
         textaux++;
     }
+    
+    private IEnumerator MostrarTextoLentamente()
+    {
+        text.text = "";
 
+        foreach (char letra in actual.dialogos[textaux])
+        {
+            text.text += letra; 
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+    
     //cuando se da click al cofre finaliza la venta, este es más complicado
     public void FinalizarVenta()
     {
@@ -350,9 +361,9 @@ public class ShopManager : MonoBehaviour
             if (impuestos.isOn)
             {
                 int taxes=0;
-                for (int i = 0; i < bandeja.getVentas().Count; i++)
+                for (int i = 0; i < actual.panesAceptados.Count; i++)
                 {
-                    switch (bandeja.getVentas()[i])
+                    switch (actual.panesAceptados[i])
                     {
                         case 0:
                             taxes += 3;
