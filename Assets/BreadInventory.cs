@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 [System.Serializable]
 public class BreadInventory : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class BreadInventory : MonoBehaviour
     [SerializeField] private List<Image> prefabs;
     [SerializeField] private List<int> quantitys;
     [SerializeField] private List<Image> actualImages;
+    [SerializeField] private AudioSource source;
+    public int crustSoundID = 0;
+    public int breadFallSoundID = 0;
     public int thisbread;
     
 
@@ -53,14 +57,28 @@ public class BreadInventory : MonoBehaviour
         if (obj == actualImages[type])
         {
             actualImages[type].transform.SetParent(canvaPadre.transform);
+            quantitys[type] --;
+            if (quantitys[type] < 0) return;
             Image nuevoObjetoHijo = Instantiate(prefabs[type], canva.transform, true);
             float scaleReadjust = 2 / canva.transform.localScale.x;
             nuevoObjetoHijo.transform.localScale = Vector3.one * scaleReadjust;
+            nuevoObjetoHijo.gameObject.GetComponent<DragDrop>().breadInv = gameObject.GetComponent<BreadInventory>();
             actualImages[type] = nuevoObjetoHijo;
             nuevoObjetoHijo.rectTransform.position = positions[type].position;
-            quantitys[type] --;
             positions[type].GetComponentInChildren<TMP_Text>().text = "x " + quantitys[type];
         }
         
+    }
+    public int selectRandomNumber(int min, int max, bool isCrust)
+    {
+        int id = isCrust ? crustSoundID : breadFallSoundID;
+        int randomID = id;
+        while (randomID == id)
+        {
+            randomID = Random.Range(min, max + 1);
+        }
+        if (isCrust) crustSoundID = randomID;
+        else breadFallSoundID = randomID;
+        return randomID;
     }
 }

@@ -17,6 +17,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     [SerializeField] public int breadtype;
     private CanvasGroup cg;
     [SerializeField] public int price;
+    public BreadInventory breadInv;
+    private int crustSoundID = 0;
     private void Awake()
     {
         rt = GetComponent<RectTransform>();
@@ -36,6 +38,17 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        int number = 0;
+        if (breadtype == 0)
+        {
+            number = 7;
+            breadInv.crustSoundID = number;
+        }
+        else number = breadInv.selectRandomNumber(4, 6, true);
+
+
+        SoundController.Instance.PlaySound(1, number, gameObject.GetComponent<AudioSource>());
+
         falling = 0;
         cg.alpha = .6f;
         cg.blocksRaycasts = false;
@@ -50,6 +63,11 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         if (falling == 0)
         {
             falling = 1;
+        }
+		else
+        {
+            int id = breadInv.selectRandomNumber(0, 3, false);
+            SoundController.Instance.PlaySound(1, id, gameObject.GetComponent<AudioSource>());
         }
         cg.alpha = 1f;
         cg.blocksRaycasts = true;
@@ -69,6 +87,4 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
             rt.anchoredPosition = anchoredPosition; 
         }
     }
-    
-    
 }

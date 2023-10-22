@@ -152,7 +152,6 @@ public class ShopManager : MonoBehaviour
     {
         textaux = 0;
         // desactivamos botones
-        GameObject parentS = s.transform.parent.transform.parent.gameObject;
 
         foreach (var boton in botones)
         {
@@ -189,19 +188,17 @@ public class ShopManager : MonoBehaviour
             if (actual.nobleza) 
             {
                 angleArrow = -15;
-                parentS.GetComponent<Animator>().SetTrigger("Move");
-                SoundController.Instance.PlaySound(0, 2, parentS.GetComponent<AudioSource>());
+                StartCoroutine(arrowAnimation());
             }
             else
             {
                 angleArrow = 15;
-                parentS.GetComponent<Animator>().SetTrigger("Move");
-                SoundController.Instance.PlaySound(0, 2, parentS.GetComponent<AudioSource>());
+                StartCoroutine(arrowAnimation());
             }
             // si tiene puestos los impuestos, los suma por un for y los muestra
             if (impuestos.isOn)
             {
-                int taxes=0;
+                int taxes = 0;
                 for (int i = 0; i < actual.panesAceptados.Count; i++)
                 {
                     switch (actual.panesAceptados[i])
@@ -219,24 +216,28 @@ public class ShopManager : MonoBehaviour
                 }
                 precio.text = $"{precioaux + taxes}";
                 precioaux += taxes;
+                SoundController.Instance.PlaySound(2, 1, gameObject.GetComponent<AudioSource>());
             }
+            else
+            {
+                SoundController.Instance.PlaySound(2, 0, gameObject.GetComponent<AudioSource>());
+			}
         }
         else
         {
             // si no los encuentra, bad ending y suma todas las taxes de la bandeja
             text.text = actual.badEnding;
+            SoundController.Instance.PlaySound(2, 2, gameObject.GetComponent<AudioSource>());
             basePersona.sprite = actual.personas[2];
             if (actual.nobleza)// hacer algo malo para la nobleza -->
             {
                 angleArrow = 15;
-                parentS.GetComponent<Animator>().SetTrigger("Move");
-                SoundController.Instance.PlaySound(0, 2, parentS.GetComponent<AudioSource>());
+                StartCoroutine(arrowAnimation());
             }
             else
             {
                 angleArrow = -15;
-                parentS.GetComponent<Animator>().SetTrigger("Move");
-                SoundController.Instance.PlaySound(0, 2, parentS.GetComponent<AudioSource>());
+                StartCoroutine(arrowAnimation());
             }
             if (impuestos.isOn)
             {
@@ -354,8 +355,6 @@ public class ShopManager : MonoBehaviour
             diezmo.rectTransform.position = Vector3.Lerp(posicionInicial, posicionCentro, t);
             yield return null;
         }
-        precioaux -= costo;
-        dinero.text = $"{precioaux}";
         
         
         textPanel.SetActive(true);
@@ -363,8 +362,14 @@ public class ShopManager : MonoBehaviour
         {
             text.text = textoDiezmo + costo + " francos";
         }
-        yield return new WaitForSeconds(4);
-        
+        yield return new WaitForSeconds(1);
+
+        precioaux -= costo;
+        dinero.text = $"{precioaux}";
+        SoundController.Instance.PlaySound(2, 3, gameObject.GetComponent<AudioSource>());
+
+        yield return new WaitForSeconds(3);
+
         textPanel.SetActive(false);
         if (precioaux <= 0)
         {
@@ -453,14 +458,25 @@ public class ShopManager : MonoBehaviour
         }
         else
         {
-            vender.text = "";
+            vender.text = "Vender";
             buybutton.GetComponent<Image>().sprite = open;
         }
 
         
     }
 	public void rotateArrow()
-    { 
-        s.rectTransform.Rotate(Vector3.forward, angleArrow);
+    {
+        s.rectTransform.Rotate(new Vector3(0, 0, angleArrow));
+	}
+
+    private IEnumerator arrowAnimation()
+    {
+        GameObject parentS = s.transform.parent.transform.parent.gameObject;
+
+        yield return new WaitForSeconds(1);
+
+        parentS.GetComponent<Animator>().SetTrigger("Move");
+        SoundController.Instance.PlaySound(0, 2, parentS.GetComponent<AudioSource>());
+        yield return null;
     }
 }
