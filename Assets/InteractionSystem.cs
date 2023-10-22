@@ -14,4 +14,5 @@ public class InteractionSystem
     public string goodEnding;
     public string badEnding;
     public bool nobleza = false;
+    public int characterRelevance = 0;
 }

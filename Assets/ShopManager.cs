@@ -49,13 +49,14 @@ public class ShopManager : MonoBehaviour
     private int personasaux = 0;
     private int diasaux = 0;
     private int angleArrow = 0;
+    private bool escribir = false;
     private void Start()
     {
         dinero.text = ""+precioaux;
         // setea las posiciones de donde salen y a donde van los customers, basicamente va de izquierda a derecha y luego de centro a izquierda
         posicionInicial = basePersona.rectTransform.position;
         posicionCentro = new Vector3(Screen.width / 2, posicionInicial.y, 0);
-        posicionTeletransporte = new Vector3(Screen.width+100, posicionInicial.y, 0);
+        posicionTeletransporte = new Vector3(Screen.width + 300, posicionInicial.y, 0);
         StartGame();
     }
 
@@ -94,6 +95,15 @@ public class ShopManager : MonoBehaviour
             Debug.Log(personasaux);
             actual = dias[diasaux].dia[personasaux];
             basePersona.sprite = actual.personas[0];
+            if(actual.characterRelevance == 1)
+            {
+                StartCoroutine(SoundController.Instance.MusicFade(1, 0.3f, 1));
+			}
+			else if(actual.characterRelevance == 2)
+            {
+                StartCoroutine(SoundController.Instance.MusicFade(2, 0.3f, 1));
+            }
+
             StartCoroutine(MoverImagenEntrante());
         }
         else
@@ -110,11 +120,12 @@ public class ShopManager : MonoBehaviour
         float t = 0;
         while (t < 1)
         {
+            //COMENZAR CAMINAR
             t += Time.deltaTime * velocidad;
             basePersona.rectTransform.position = Vector3.Lerp(posicionInicial, posicionCentro, t);
             yield return null;
         }
-
+        //DETENER ANIMACIÓN
         textaux = 0;
         foreach (var boton in botones)
         {
@@ -129,6 +140,7 @@ public class ShopManager : MonoBehaviour
         textPanel.SetActive(true);
         if (textaux < actual.dialogos.Count)
         {
+            escribir = true;
             StartCoroutine(MostrarTextoLentamente());
         }
         
@@ -141,8 +153,11 @@ public class ShopManager : MonoBehaviour
         botones[1].interactable = false;
         foreach (char letra in actual.dialogos[textaux])
         {
-            text.text += letra; 
-            yield return new WaitForSeconds(0.1f);
+            if(escribir)
+			{
+                text.text += letra; 
+                yield return new WaitForSeconds(0.1f);
+			}
         }
         botones[1].interactable = true;
     }
@@ -151,6 +166,7 @@ public class ShopManager : MonoBehaviour
     public void FinalizarVenta()
     {
         textaux = 0;
+        escribir = false;
         // desactivamos botones
 
         foreach (var boton in botones)
@@ -319,17 +335,8 @@ public class ShopManager : MonoBehaviour
         obispotext.GetComponent<TMP_Text>().text = text;
         yield return new WaitForSeconds(2.0f);
         
-        if (precioaux <= 0)
-        {
-            personasaux = 0;
-            diasaux = 0;
-            PersonasStart();
-        }
-        else
-        {
-            // como se empieza el dia, se cobra el diezmo que es una actividad extra
-            StartCoroutine(CobrarDiezmo(precioDiezmo));
-        }
+        // como se empieza el dia, se cobra el diezmo que es una actividad extra
+        StartCoroutine(CobrarDiezmo(precioDiezmo));
         
         obispotext.gameObject.SetActive(false);
 
@@ -349,23 +356,31 @@ public class ShopManager : MonoBehaviour
     {
         diezmo.sprite = diezmoEmocions[0];
         float t = 0;
+        Debug.LogWarning("Diezmo");
+        StartCoroutine(SoundController.Instance.MusicFade(3, 0.3f, 1));
         while (t < 1)
         {
             t += Time.deltaTime * velocidad;
             diezmo.rectTransform.position = Vector3.Lerp(posicionInicial, posicionCentro, t);
             yield return null;
         }
-        
-        
+
+
         textPanel.SetActive(true);
         if (textaux < actual.dialogos.Count)
         {
-            text.text = textoDiezmo + costo + " francos";
+            text.text = textoDiezmo + costo + " francs";
         }
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
 
         precioaux -= costo;
         dinero.text = $"{precioaux}";
+        if(precioaux <= 0)
+		{
+            personasaux = 0;
+            diasaux = 0;
+            text.text = "te cargo el payaso";
+		}
         SoundController.Instance.PlaySound(2, 3, gameObject.GetComponent<AudioSource>());
 
         yield return new WaitForSeconds(3);
@@ -453,12 +468,12 @@ public class ShopManager : MonoBehaviour
 
         if (Int32.Parse(precio.text) == 0)
         {
-            vender.text = "No vender";
+            vender.text = "Don't sell it";
             buybutton.GetComponent<Image>().sprite = close;
         }
         else
         {
-            vender.text = "Vender";
+            vender.text = "Sell it";
             buybutton.GetComponent<Image>().sprite = open;
         }
 

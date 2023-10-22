@@ -12,6 +12,8 @@ public class SoundController : MonoBehaviour
     [SerializeField] private List<Sound> MoneySounds;
     [SerializeField] private List<Sound> Music;
     private List<Sound> Sounds;
+    [SerializeField] private AudioSource source;
+    [SerializeField] public List<GameObject> MusicPlayers;
 
     // Start is called before the first frame update
     public void Awake()
@@ -24,6 +26,21 @@ public class SoundController : MonoBehaviour
         {
             Destroy(this);
         }
+    }
+    void Start()
+    {
+        StartCoroutine(playEngineSound());
+    }
+
+    IEnumerator playEngineSound()
+    {
+        source.Play();
+        yield return new WaitForSeconds(source.clip.length);
+        source.Stop();
+        PlaySound(3, 0, MusicPlayers[0].GetComponent<AudioSource>());
+        PlaySound(3, 1, MusicPlayers[1].GetComponent<AudioSource>(), 0);
+        PlaySound(3, 2, MusicPlayers[2].GetComponent<AudioSource>(), 0);
+        PlaySound(3, 3, MusicPlayers[3].GetComponent<AudioSource>(), 0);
     }
 
     public static SoundController Instance
@@ -38,15 +55,37 @@ public class SoundController : MonoBehaviour
         }
     }
 
-    public void PlaySound(int listId, int id, AudioSource source = null)
+    public void PlaySound(int listId, int id, AudioSource source = null, int volume = -1)
 	{
         Sounds = getSoundList(listId);
         if (source == null) source = audioSource;
         source.clip = Sounds[id].clip;
-        source.volume = Sounds[id].volume;
+        source.volume = volume == -1 ? Sounds[id].volume : volume;
         source.loop = Sounds[id].isLoop;
         source.Play();
 
+	}
+
+    public IEnumerator MusicFade(int id, float volumeTarget, float time)
+	{
+        if (MusicPlayers[id].GetComponent<AudioSource>().volume == volumeTarget) yield return null;
+        float timeElapsed = 0;
+
+        while (timeElapsed < time)
+        {
+            for(int i = 0; i < MusicPlayers.Count; i++)
+			{
+                if(id == i)
+				{
+                    MusicPlayers[i].GetComponent<AudioSource>().volume = Mathf.Lerp(Music[i].volume, volumeTarget, timeElapsed / time);
+                }else if(MusicPlayers[i].GetComponent<AudioSource>().volume != 0)
+				{
+                    MusicPlayers[i].GetComponent<AudioSource>().volume = Mathf.Lerp(Music[i].volume, 0.01f, timeElapsed / time);
+                }
+			}
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
 	}
 
     private List<Sound> getSoundList(int id)
