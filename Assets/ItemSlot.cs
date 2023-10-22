@@ -22,7 +22,12 @@ public class ItemSlot : MonoBehaviour
         price += col.GetComponent<DragDrop>().price;
         col.GetComponent<DragDrop>().falling = 2;
     }
-    
+
+    private void OnTriggerStay2D(Collider2D col)
+	{
+        col.GetComponent<DragDrop>().falling = 2;
+    }
+
 
     private void OnTriggerExit2D(Collider2D other)
     {
