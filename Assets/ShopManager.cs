@@ -48,6 +48,7 @@ public class ShopManager : MonoBehaviour
     private int textaux = 0;
     private int personasaux = 0;
     private int diasaux = 0;
+    private int angleArrow = 0;
     private void Start()
     {
         dinero.text = ""+precioaux;
@@ -150,6 +151,8 @@ public class ShopManager : MonoBehaviour
     {
         textaux = 0;
         // desactivamos botones
+        GameObject parentS = s.transform.parent.transform.parent.gameObject;
+
         foreach (var boton in botones)
         {
             boton.interactable = false;
@@ -176,7 +179,7 @@ public class ShopManager : MonoBehaviour
                 break;
             }
         }
-        
+
         // si si estan, te muestra un good ending (string) y te aumenta o disminuye grados de moral 
         if (todosEnB)
         {
@@ -184,11 +187,15 @@ public class ShopManager : MonoBehaviour
             basePersona.sprite = actual.personas[1];
             if (actual.nobleza) 
             {
-                s.rectTransform.Rotate(Vector3.forward, -15);
+                angleArrow = -15;
+                parentS.GetComponent<Animator>().SetTrigger("Move");
+                SoundController.Instance.PlaySound(0, 2, parentS.GetComponent<AudioSource>());
             }
             else
             {
-                s.rectTransform.Rotate(Vector3.forward, 15);
+                angleArrow = 15;
+                parentS.GetComponent<Animator>().SetTrigger("Move");
+                SoundController.Instance.PlaySound(0, 2, parentS.GetComponent<AudioSource>());
             }
             // si tiene puestos los impuestos, los suma por un for y los muestra
             if (impuestos.isOn)
@@ -220,11 +227,15 @@ public class ShopManager : MonoBehaviour
             basePersona.sprite = actual.personas[2];
             if (actual.nobleza)// hacer algo malo para la nobleza -->
             {
-                s.rectTransform.Rotate(Vector3.forward, 15);
+                angleArrow = 15;
+                parentS.GetComponent<Animator>().SetTrigger("Move");
+                SoundController.Instance.PlaySound(0, 2, parentS.GetComponent<AudioSource>());
             }
             else
             {
-                s.rectTransform.Rotate(Vector3.forward, -15);
+                angleArrow = -15;
+                parentS.GetComponent<Animator>().SetTrigger("Move");
+                SoundController.Instance.PlaySound(0, 2, parentS.GetComponent<AudioSource>());
             }
             if (impuestos.isOn)
             {
@@ -448,6 +459,11 @@ public class ShopManager : MonoBehaviour
             vender.text = "";
             buybutton.GetComponent<Image>().sprite = open;
         }
+
         
+    }
+	public void rotateArrow()
+    { 
+        s.rectTransform.Rotate(Vector3.forward, angleArrow);
     }
 }
