@@ -28,6 +28,8 @@ public class BreadInventory : MonoBehaviour
     }
     public void MoverPanelIzquierda()
     {
+        SoundController.Instance.PlaySound(0,0, gameObject.GetComponent<AudioSource>());
+        gameObject.GetComponent<Animator>().SetBool("isOut", false);
         Vector2 currentPosition = breadInv.anchoredPosition;
         float newX = currentPosition.x - moveAmount;
         breadInv.anchoredPosition = new Vector2(newX, currentPosition.y);
@@ -37,6 +39,8 @@ public class BreadInventory : MonoBehaviour
     
     public void MoverPanelDerecha()
     {
+        SoundController.Instance.PlaySound(0, 1, gameObject.GetComponent<AudioSource>());
+        gameObject.GetComponent<Animator>().SetBool("isOut", true);
         Vector2 currentPosition = breadInv.anchoredPosition;
         float newX = currentPosition.x + moveAmount;
         breadInv.anchoredPosition = new Vector2(newX, currentPosition.y);
