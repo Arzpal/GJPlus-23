@@ -22,9 +22,12 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private CanvasGroup panel;
     [SerializeField] private GameObject obispotext;
     [SerializeField] private List<Dias> dias;
-    
-    
-    
+    [SerializeField] private Image diezmo;
+    [SerializeField] private List<Button> botones;
+    [SerializeField] private Slider s;
+
+
+
     private InteractionSystem actual;
     private Vector3 posicionInicial;
     private Vector3 posicionCentro;
@@ -32,8 +35,9 @@ public class ShopManager : MonoBehaviour
     [Header("movible")] 
     [SerializeField] private float duracionFade = 1.0f;
     [SerializeField] private float velocidad = 1.0f;
-    [SerializeField] private float teletransporteX = 100.0f; // Posición X para el teletransporte
-    
+    [SerializeField] private int precioDiezmo = 20;
+    [SerializeField] private string textoDiezmo;
+    [SerializeField] private int moralpoints;
     private int precioaux;
     private int textaux = 0;
     private int personasaux = 0;
@@ -97,6 +101,10 @@ public class ShopManager : MonoBehaviour
         }
 
         textaux = 0;
+        foreach (var boton in botones)
+        {
+            boton.interactable = true;
+        }
         InteraccionPersona();
     }
 
@@ -114,15 +122,54 @@ public class ShopManager : MonoBehaviour
     public void FinalizarVenta()
     {
         textaux = 0;
-        Debug.Log(actual.panesAceptados.OrderBy(x => x).SequenceEqual(bandeja.getVentas().OrderBy(x => x)));
-        if (actual.panesAceptados.OrderBy(x => x).SequenceEqual(bandeja.getVentas().OrderBy(x => x)))
+        foreach (var boton in botones)
         {
-            
+            boton.interactable = false;
+        }
+        bool todosEnB = true;
+
+        foreach (int valorA in actual.panesAceptados)
+        {
+            bool encontrado = false;
+            foreach (int valorB in bandeja.getVentas())
+            {
+                if (valorA == valorB)
+                {
+                    bandeja.getVentas().Remove(valorB);
+                    encontrado = true;
+                    break;
+                }
+            }
+
+            if (!encontrado)
+            {
+                todosEnB = false;
+                break;
+            }
+        }
+        if (todosEnB)
+        {
             text.text = actual.goodEnding;
+            if (actual.nobleza) // hacer algo bueno para la nobleza <--
+            {
+                s.value -= moralpoints;
+            }
+            else
+            {
+                s.value += moralpoints;
+            }
         }
         else
         {
             text.text = actual.badEnding;
+            if (actual.nobleza)// hacer algo malo para la nobleza -->
+            {
+                s.value += moralpoints;
+            }
+            else
+            {
+                s.value -= moralpoints;
+            }
         }
         
         if (actual.price < bandeja.price)
@@ -194,11 +241,9 @@ public class ShopManager : MonoBehaviour
         }
         
         obispotext.gameObject.SetActive(true);
-
+        obispotext.GetComponent<TMP_Text>().text = "Día " + (diasaux+1);
         yield return new WaitForSeconds(2.0f);
-        precioaux -= 20;
-        dinero.text = $"{precioaux}";
-        
+
         obispotext.gameObject.SetActive(false);
 
         
@@ -211,9 +256,38 @@ public class ShopManager : MonoBehaviour
         }
 
         personasaux = 0;
+        StartCoroutine(CobrarDiezmo(precioDiezmo));
+    }
+
+    public IEnumerator CobrarDiezmo(int costo)
+    {
+        float t = 0;
+        while (t < 1)
+        {
+            t += Time.deltaTime * velocidad;
+            diezmo.rectTransform.position = Vector3.Lerp(posicionInicial, posicionCentro, t);
+            yield return null;
+        }
+        precioaux -= costo;
+        dinero.text = $"{precioaux}";
+        
+        textPanel.SetActive(true);
+        if (textaux < actual.dialogos.Count)
+        {
+            text.text = textoDiezmo + costo + " francos";
+        }
+        yield return new WaitForSeconds(4);
+        textPanel.SetActive(false);
+        
+        t = 0;
+        while (t < 1)
+        {
+            t += Time.deltaTime * velocidad;
+            diezmo.rectTransform.position = Vector3.Lerp(posicionCentro, posicionTeletransporte, t);
+            yield return null;
+        }
         PersonasStart();
     }
-    
     private void Update()
     {
         

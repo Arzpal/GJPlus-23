@@ -13,4 +13,5 @@ public class InteractionSystem
     public List<int> panesAceptados;
     public string goodEnding;
     public string badEnding;
+    public bool nobleza = false;
 }
