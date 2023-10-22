@@ -23,6 +23,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private GameObject obispotext;
     [SerializeField] private List<Dias> dias;
     [SerializeField] private Image diezmo;
+    [SerializeField] private List<Image> diezmoEmocions;
     [SerializeField] private List<Button> botones;
     [SerializeField] private Image s;
     [SerializeField] private Button buybutton;
@@ -73,7 +74,7 @@ public class ShopManager : MonoBehaviour
         {
             if (diasaux != 0)
             {
-                StartCoroutine(RealizarFade());
+                StartCoroutine(RealizarFade("Día " + (diasaux+1)));
             }
             else
             {
@@ -91,6 +92,7 @@ public class ShopManager : MonoBehaviour
         {
             Debug.Log(personasaux);
             actual = dias[diasaux].dia[personasaux];
+            basePersona.sprite = actual.personas[0].sprite;
             StartCoroutine(MoverImagenEntrante());
         }
         else
@@ -179,6 +181,7 @@ public class ShopManager : MonoBehaviour
         if (todosEnB)
         {
             text.text = actual.goodEnding;
+            basePersona.sprite = actual.personas[1].sprite;
             if (actual.nobleza) 
             {
                 s.rectTransform.Rotate(Vector3.forward, -15);
@@ -214,6 +217,7 @@ public class ShopManager : MonoBehaviour
         {
             // si no los encuentra, bad ending y suma todas las taxes de la bandeja
             text.text = actual.badEnding;
+            basePersona.sprite = actual.personas[2].sprite;
             if (actual.nobleza)// hacer algo malo para la nobleza -->
             {
                 s.rectTransform.Rotate(Vector3.forward, 15);
@@ -286,7 +290,7 @@ public class ShopManager : MonoBehaviour
     }
     
     //cuando se termina el dia se hace un fade que te muestra que dia es y pasa al siguiente dia 
-    private IEnumerator RealizarFade()
+    private IEnumerator RealizarFade(string text)
     {
         panel.alpha = 0;
         
@@ -299,9 +303,21 @@ public class ShopManager : MonoBehaviour
         }
         
         obispotext.gameObject.SetActive(true);
-        obispotext.GetComponent<TMP_Text>().text = "Día " + (diasaux+1);
+        obispotext.GetComponent<TMP_Text>().text = text;
         yield return new WaitForSeconds(2.0f);
-
+        
+        if (precioaux <= 0)
+        {
+            personasaux = 0;
+            diasaux = 0;
+            PersonasStart();
+        }
+        else
+        {
+            // como se empieza el dia, se cobra el diezmo que es una actividad extra
+            StartCoroutine(CobrarDiezmo(precioDiezmo));
+        }
+        
         obispotext.gameObject.SetActive(false);
 
         
@@ -312,15 +328,13 @@ public class ShopManager : MonoBehaviour
             panel.alpha = Mathf.Lerp(1, 0, t);
             yield return null;
         }
-
-        personasaux = 0;
-        // como se empieza el dia, se cobra el diezmo que es una actividad extra
-        StartCoroutine(CobrarDiezmo(precioDiezmo));
+        
     }
 
     // es como una persona normal pero este te cobra el diezmo sin que puedas hacer nada, basicamente te roba
     public IEnumerator CobrarDiezmo(int costo)
     {
+        diezmo.sprite = diezmoEmocions[0].sprite;
         float t = 0;
         while (t < 1)
         {
@@ -331,13 +345,28 @@ public class ShopManager : MonoBehaviour
         precioaux -= costo;
         dinero.text = $"{precioaux}";
         
+        if (precioaux <= 0)
+        {
+            RealizarFade("Perdiste");
+        }
+        
         textPanel.SetActive(true);
         if (textaux < actual.dialogos.Count)
         {
             text.text = textoDiezmo + costo + " francos";
         }
         yield return new WaitForSeconds(4);
+        
         textPanel.SetActive(false);
+        if (precioaux <= 0)
+        {
+            diezmo.sprite = diezmoEmocions[2].sprite;
+            RealizarFade("Perdiste");
+        }
+        else
+        {
+            diezmo.sprite = diezmoEmocions[1].sprite;
+        }
         
         t = 0;
         while (t < 1)
