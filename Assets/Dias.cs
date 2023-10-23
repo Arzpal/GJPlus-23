@@ -7,4 +7,5 @@ public class Dias
 {
     public List<InteractionSystem> dia;
     public List<string> textosDiezmo;
+    public List<int> quantity;
 }

@@ -23,8 +23,15 @@ public class BreadInventory : MonoBehaviour
     public int crustSoundID = 0;
     public int breadFallSoundID = 0;
     public int thisbread;
-    
 
+    public void ChangeBreads(List<int> a)
+    {
+        quantitys = a;
+        for (int i = 0; i < quantitys.Count; i++)
+        {
+            positions[i].GetComponentInChildren<TMP_Text>().text = "x " + quantitys[i];
+        }
+    }
     public void movePanel()
     {
         if (!open) { MoverPanelIzquierda(); }

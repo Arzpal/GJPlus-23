@@ -33,6 +33,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private Sprite obreroFinal;
     [SerializeField] private bool final = false;
     [SerializeField] private int moral = 0;
+    [SerializeField] private BreadInventory bI;
     
     
     
@@ -75,6 +76,7 @@ public class ShopManager : MonoBehaviour
     // es como un for pero con variables auxiliares
     public void DiasStart()
     {
+        bI.ChangeBreads(dias[diasaux].quantity);
         if (diasaux < dias.Count - 1)
         {
             if (diasaux != 0)
@@ -174,7 +176,7 @@ public class ShopManager : MonoBehaviour
             if(escribir)
 			{
                 text.text += letra; 
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(0.03f);
 			}
         }
         botones[1].interactable = true;
