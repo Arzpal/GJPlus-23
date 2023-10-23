@@ -415,7 +415,29 @@ public class ShopManager : MonoBehaviour
             diezmo.rectTransform.position = Vector3.Lerp(posicionInicial, posicionCentro, t);
             yield return null;
         }
-        if(!final) dias[diasaux].textosDiezmo.Add(textoDiezmo + costo + " francs");
+        if (!final)
+        {
+            dias[diasaux].textosDiezmo.Add(textoDiezmo + costo + " francs");
+		}
+		else
+		{
+            if(moral >= 0)
+			{
+                //obrero
+                dias[diasaux].textosDiezmo.Add("Young brother! Give me your best bread because the revolution has already begun.");
+                dias[diasaux].textosDiezmo.Add("Thanks to a brave man who wrote in a newspaper about our rights and the revolution, we are here.");
+                dias[diasaux].textosDiezmo.Add("Soon, the French will take Versailles and make history with a constitution that safeguards our rights.");
+                dias[diasaux].textosDiezmo.Add("We will finally be free from the tithe and the scourge of royalty... we will be free! Let's march together!");
+            }
+			else
+			{
+                //nobles
+                dias[diasaux].textosDiezmo.Add("Baker... give me 3 ba-");
+                dias[diasaux].textosDiezmo.Add("Wait a moment... you are a bourgeois...");
+                dias[diasaux].textosDiezmo.Add("We, the working class, with great effort, managed to take the palace of Versailles where your dear customers are.");
+                dias[diasaux].textosDiezmo.Add("At last, we will free ourselves from those human scum and from you!");
+            }
+		}
         escribir = true;
         textPanel.SetActive(true);
         for (int i = 0; i < dias[diasaux].textosDiezmo.Count; i++)
@@ -445,15 +467,16 @@ public class ShopManager : MonoBehaviour
             if(moral >= 0)
 			{
                 Debug.LogWarning("GANASTE");
-                StartCoroutine(RealizarFade("Ganaste", 5, true));
-			}
+                StartCoroutine(RealizarFade("You decided to join the march with that customer, realizing the turmoil caused by the queen's comment and the entire social crisis.", 5, true));
+
+            }
 			else
             {
                 Debug.LogWarning("PERDISTE");
-                StartCoroutine(RealizarFade("Perdiste", 5, true));
+                StartCoroutine(RealizarFade("The worker and his companions attacked your business and you for having served the bourgeoisie.", 5, true));
             }
         }
-        if(precioaux <= 0)
+        if(preciofinal <= 0)
 		{
             personasaux = 0;
             diasaux = 0;
@@ -464,7 +487,7 @@ public class ShopManager : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         textPanel.SetActive(false);
-        if (precioaux <= 0)
+        if (preciofinal <= 0)
         {
             diezmo.sprite = diezmoEmocions[2 + (!final ? 0 : 3)];
             StartCoroutine(RealizarFade("Perdiste", 5, true));
