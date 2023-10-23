@@ -29,9 +29,9 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private Button buybutton;
     [SerializeField] private Sprite close;
     [SerializeField] private Sprite open;
-    
-    
-    
+
+
+
     private InteractionSystem actual;
     private Vector3 posicionInicial;
     private Vector3 posicionCentro;
@@ -141,17 +141,17 @@ public class ShopManager : MonoBehaviour
         if (textaux < actual.dialogos.Count)
         {
             escribir = true;
-            StartCoroutine(MostrarTextoLentamente());
+            StartCoroutine(MostrarTextoLentamente(actual.dialogos));
         }
         
         textaux++;
     }
     
-    private IEnumerator MostrarTextoLentamente()
+    private IEnumerator MostrarTextoLentamente(List<string> dialogos)
     {
         text.text = "";
         botones[1].interactable = false;
-        foreach (char letra in actual.dialogos[textaux])
+        foreach (char letra in dialogos[textaux])
         {
             if(escribir)
 			{
@@ -364,13 +364,27 @@ public class ShopManager : MonoBehaviour
             diezmo.rectTransform.position = Vector3.Lerp(posicionInicial, posicionCentro, t);
             yield return null;
         }
-
-
+        dias[diasaux].textosDiezmo.Add(textoDiezmo + costo + " francs");
+        escribir = true;
         textPanel.SetActive(true);
-        if (textaux < actual.dialogos.Count)
+        for (int i = 0; i < dias[diasaux].textosDiezmo.Count; i++)
         {
-            text.text = textoDiezmo + costo + " francs";
+            text.text = "";
+            botones[1].interactable = false;
+            foreach (char letra in dias[diasaux].textosDiezmo[i])
+            {
+                if(escribir)
+                {
+                    text.text += letra; 
+                    yield return new WaitForSeconds(0.1f);
+                }
+            }
+            yield return new WaitForSeconds(2f);
+            botones[1].interactable = true;
+            botones[1].interactable = true;
         }
+        escribir = false;
+        
         yield return new WaitForSeconds(2);
 
         precioaux -= costo;

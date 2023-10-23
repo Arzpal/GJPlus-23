@@ -4503,6 +4503,7 @@ MonoBehaviour:
       badEnding: que te pasa bro
       nobleza: 0
       characterRelevance: 1
+    textosDiezmo: []
   - dia:
     - dialogos:
       - keloke bro te habla mitel bi, hoy es dia 2
@@ -4534,6 +4535,10 @@ MonoBehaviour:
       badEnding: que te pasa bro
       nobleza: 0
       characterRelevance: 0
+    textosDiezmo:
+    - 123
+    - 123
+    - 123
   diezmo: {fileID: 2033698553}
   diezmoEmocions:
   - {fileID: -1501713343, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
