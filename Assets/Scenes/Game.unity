@@ -459,7 +459,7 @@ RectTransform:
   - {fileID: 711891641}
   - {fileID: 1783582989}
   m_Father: {fileID: 1838040931}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1642,7 +1642,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &654109776
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4535,15 +4535,48 @@ MonoBehaviour:
       badEnding: que te pasa bro
       nobleza: 0
       characterRelevance: 0
+    textosDiezmo: []
+  - dia:
+    - dialogos:
+      - keloke bro te habla mitel bi, hoy es dia 2
+      - 'asi mimo, mitel bi '
+      - quiero felicitarte xq eres el ganador de los 2000 dolal
+      - felicidades
+      price: 15
+      personas:
+      - {fileID: 781916898, guid: 6f2eecbae5ae9014f8a4ef1cad8070cb, type: 3}
+      - {fileID: 1142902555, guid: 6f2eecbae5ae9014f8a4ef1cad8070cb, type: 3}
+      - {fileID: 718072630, guid: 6f2eecbae5ae9014f8a4ef1cad8070cb, type: 3}
+      panesAceptados: 000000000000000000000000
+      goodEnding: grac bro
+      badEnding: que te pasa bro
+      nobleza: 0
+      characterRelevance: 2
+    - dialogos:
+      - keloke bro te habla mitel bi
+      - 'asi mimo, mitel bi '
+      - quiero felicitarte xq eres el ganador de los 2000 dolal
+      - felicidades
+      price: 15
+      personas:
+      - {fileID: 370114219, guid: 2dcdbfc8b48b561498718f40649c6ef5, type: 3}
+      - {fileID: -892642701, guid: 2dcdbfc8b48b561498718f40649c6ef5, type: 3}
+      - {fileID: 1009908819, guid: 2dcdbfc8b48b561498718f40649c6ef5, type: 3}
+      panesAceptados: 000000000000000000000000
+      goodEnding: grac bro
+      badEnding: que te pasa bro
+      nobleza: 0
+      characterRelevance: 0
     textosDiezmo:
-    - 123
-    - 123
-    - 123
+    - a
   diezmo: {fileID: 2033698553}
   diezmoEmocions:
   - {fileID: -1501713343, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
   - {fileID: 523533682, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
   - {fileID: -846073766, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
+  - {fileID: 240831082, guid: 1deeb7882c1c6b048ab36626c76d9835, type: 3}
+  - {fileID: 1003057016, guid: 1deeb7882c1c6b048ab36626c76d9835, type: 3}
+  - {fileID: -1637065420, guid: 1deeb7882c1c6b048ab36626c76d9835, type: 3}
   botones:
   - {fileID: 711891642}
   - {fileID: 831436660}
@@ -4551,7 +4584,9 @@ MonoBehaviour:
   buybutton: {fileID: 711891642}
   close: {fileID: 21300000, guid: 2177d949d3003be4288636e2a5bf9823, type: 3}
   open: {fileID: 21300000, guid: 6d5806d2de808d6479868556614ff477, type: 3}
-  duracionFade: 1
+  obreroFinal: {fileID: 240831082, guid: 1deeb7882c1c6b048ab36626c76d9835, type: 3}
+  final: 0
+  moral: 0
   velocidad: 0.5
   precioDiezmo: 20
   textoDiezmo: 'keloke bro el precio de hoy es '
@@ -4997,7 +5032,7 @@ RectTransform:
   - {fileID: 1128968568}
   - {fileID: 1080847319}
   m_Father: {fileID: 1838040931}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -5890,13 +5925,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 363135524}
+  - {fileID: 2034557068}
   - {fileID: 1961656577}
   - {fileID: 1938905938}
   - {fileID: 101582064}
   - {fileID: 2033698552}
   - {fileID: 1664774466}
   - {fileID: 1952792754}
-  - {fileID: 2034557068}
   - {fileID: 1762510562}
   - {fileID: 693004780}
   - {fileID: 694182850}
@@ -6154,7 +6189,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1838040931}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.017187497, y: 0.026851851}
   m_AnchorMax: {x: 0.2528333, y: 0.30200002}
@@ -6391,7 +6426,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1838040931}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1961656576
 GameObject:
@@ -6424,7 +6459,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1838040931}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6576,7 +6611,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1838040931}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6656,7 +6691,7 @@ RectTransform:
   - {fileID: 383031086}
   - {fileID: 1790115943}
   m_Father: {fileID: 1838040931}
-  m_RootOrder: 7
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

@@ -66,21 +66,21 @@ public class SoundController : MonoBehaviour
 
 	}
 
-    public IEnumerator MusicFade(int id, float volumeTarget, float time)
+    public IEnumerator MusicFade(int id)
 	{
-        if (MusicPlayers[id].GetComponent<AudioSource>().volume == volumeTarget) yield return null;
+        if (MusicPlayers[id].GetComponent<AudioSource>().volume == 0.3f) yield return null;
         float timeElapsed = 0;
 
-        while (timeElapsed < time)
+        while (timeElapsed < 1)
         {
             for(int i = 0; i < MusicPlayers.Count; i++)
 			{
                 if(id == i)
 				{
-                    MusicPlayers[i].GetComponent<AudioSource>().volume = Mathf.Lerp(Music[i].volume, volumeTarget, timeElapsed / time);
-                }else if(MusicPlayers[i].GetComponent<AudioSource>().volume != 0)
+                    MusicPlayers[i].GetComponent<AudioSource>().volume = Mathf.Lerp(0, 0.3f, timeElapsed / 1);
+                }else if(MusicPlayers[i].GetComponent<AudioSource>().volume > 0.1)
 				{
-                    MusicPlayers[i].GetComponent<AudioSource>().volume = Mathf.Lerp(Music[i].volume, 0.01f, timeElapsed / time);
+                    MusicPlayers[i].GetComponent<AudioSource>().volume = Mathf.Lerp(0.3f, 0, timeElapsed / 1);
                 }
 			}
             timeElapsed += Time.deltaTime;

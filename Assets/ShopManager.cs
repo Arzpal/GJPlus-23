@@ -5,6 +5,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ShopManager : MonoBehaviour
 {
@@ -29,9 +30,12 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private Button buybutton;
     [SerializeField] private Sprite close;
     [SerializeField] private Sprite open;
-
-
-
+    [SerializeField] private Sprite obreroFinal;
+    [SerializeField] private bool final = false;
+    [SerializeField] private int moral = 0;
+    
+    
+    
     private InteractionSystem actual;
     private Vector3 posicionInicial;
     private Vector3 posicionCentro;
@@ -39,7 +43,6 @@ public class ShopManager : MonoBehaviour
     
     // cosas que se pueden mover pero mejor no
     [Header("movible")] 
-    [SerializeField] private float duracionFade = 1.0f;
     [SerializeField] private float velocidad = 1.0f;
     [SerializeField] private int precioDiezmo = 20;
     [SerializeField] private string textoDiezmo;
@@ -72,11 +75,11 @@ public class ShopManager : MonoBehaviour
     // es como un for pero con variables auxiliares
     public void DiasStart()
     {
-        if (diasaux < dias.Count)
+        if (diasaux < dias.Count - 1)
         {
             if (diasaux != 0)
             {
-                StartCoroutine(RealizarFade("Día " + (diasaux+1)));
+                StartCoroutine(RealizarFade("Día " + (diasaux+1), 2));
             }
             else
             {
@@ -85,24 +88,23 @@ public class ShopManager : MonoBehaviour
             }
             
         }
+        if(diasaux + 1 == dias.Count)
+		{
+            StartCoroutine(RealizarFade("Día " + (diasaux + 1), 2));
+            diezmo.sprite = obreroFinal;
+            final = true;
+		}
     }
 
     // este es el for dentro del for, si hay muchos dias, este es las personas que pasan cada dia
     public void PersonasStart()
     {
+        Debug.Log('a');
         if (personasaux < dias[diasaux].dia.Count)
         {
             Debug.Log(personasaux);
             actual = dias[diasaux].dia[personasaux];
             basePersona.sprite = actual.personas[0];
-            if(actual.characterRelevance == 1)
-            {
-                StartCoroutine(SoundController.Instance.MusicFade(1, 0.3f, 1));
-			}
-			else if(actual.characterRelevance == 2)
-            {
-                StartCoroutine(SoundController.Instance.MusicFade(2, 0.3f, 1));
-            }
 
             StartCoroutine(MoverImagenEntrante());
         }
@@ -118,6 +120,22 @@ public class ShopManager : MonoBehaviour
     {
         
         float t = 0;
+
+        if (actual.characterRelevance == 1)
+        {
+            StartCoroutine(SoundController.Instance.MusicFade(1));
+        }
+        else if (actual.characterRelevance == 2)
+        {
+            Debug.Log('b');
+            StartCoroutine(SoundController.Instance.MusicFade(2));
+		}
+		else
+		{
+            StartCoroutine(SoundController.Instance.MusicFade(0));
+
+        }
+
         while (t < 1)
         {
             //COMENZAR CAMINAR
@@ -197,18 +215,21 @@ public class ShopManager : MonoBehaviour
         }
 
         // si si estan, te muestra un good ending (string) y te aumenta o disminuye grados de moral 
+        int multiplierAngle = actual.characterRelevance > 0 ? 3 : 1;
         if (todosEnB)
         {
             text.text = actual.goodEnding;
             basePersona.sprite = actual.personas[1];
             if (actual.nobleza) 
             {
-                angleArrow = -15;
+                angleArrow = -15 * multiplierAngle;
+                moral -= 1 * multiplierAngle;
                 StartCoroutine(arrowAnimation());
             }
             else
             {
-                angleArrow = 15;
+                angleArrow = 15 * multiplierAngle;
+                moral += 1 * multiplierAngle;
                 StartCoroutine(arrowAnimation());
             }
             // si tiene puestos los impuestos, los suma por un for y los muestra
@@ -247,12 +268,14 @@ public class ShopManager : MonoBehaviour
             basePersona.sprite = actual.personas[2];
             if (actual.nobleza)// hacer algo malo para la nobleza -->
             {
-                angleArrow = 15;
+                angleArrow = 15 * multiplierAngle;
+                moral += 1 * multiplierAngle;
                 StartCoroutine(arrowAnimation());
             }
             else
             {
-                angleArrow = -15;
+                angleArrow = -15 * multiplierAngle;
+                moral -= 1 * multiplierAngle;
                 StartCoroutine(arrowAnimation());
             }
             if (impuestos.isOn)
@@ -319,7 +342,7 @@ public class ShopManager : MonoBehaviour
     }
     
     //cuando se termina el dia se hace un fade que te muestra que dia es y pasa al siguiente dia 
-    private IEnumerator RealizarFade(string text)
+    private IEnumerator RealizarFade(string text, int duracionFade, bool final2 = false)
     {
         panel.alpha = 0;
         
@@ -335,6 +358,10 @@ public class ShopManager : MonoBehaviour
         obispotext.GetComponent<TMP_Text>().text = text;
         yield return new WaitForSeconds(2.0f);
         
+        if(final && final2)
+		{
+            SceneManager.LoadScene("Game");
+		}
         // como se empieza el dia, se cobra el diezmo que es una actividad extra
         StartCoroutine(CobrarDiezmo(precioDiezmo));
         
@@ -354,17 +381,17 @@ public class ShopManager : MonoBehaviour
     // es como una persona normal pero este te cobra el diezmo sin que puedas hacer nada, basicamente te roba
     public IEnumerator CobrarDiezmo(int costo)
     {
-        diezmo.sprite = diezmoEmocions[0];
+        diezmo.sprite = diezmoEmocions[0 + (!final ? 0 : 3)];
         float t = 0;
         Debug.LogWarning("Diezmo");
-        StartCoroutine(SoundController.Instance.MusicFade(3, 0.3f, 1));
+        StartCoroutine(SoundController.Instance.MusicFade(3));
         while (t < 1)
         {
             t += Time.deltaTime * velocidad;
             diezmo.rectTransform.position = Vector3.Lerp(posicionInicial, posicionCentro, t);
             yield return null;
         }
-        dias[diasaux].textosDiezmo.Add(textoDiezmo + costo + " francs");
+        if(!final) dias[diasaux].textosDiezmo.Add(textoDiezmo + costo + " francs");
         escribir = true;
         textPanel.SetActive(true);
         for (int i = 0; i < dias[diasaux].textosDiezmo.Count; i++)
@@ -389,6 +416,19 @@ public class ShopManager : MonoBehaviour
 
         precioaux -= costo;
         dinero.text = $"{precioaux}";
+		if (final)
+		{
+            if(moral >= 0)
+			{
+                Debug.LogWarning("GANASTE");
+                StartCoroutine(RealizarFade("Ganaste", 5, true));
+			}
+			else
+            {
+                Debug.LogWarning("PERDISTE");
+                StartCoroutine(RealizarFade("Perdiste", 5, true));
+            }
+        }
         if(precioaux <= 0)
 		{
             personasaux = 0;
@@ -402,12 +442,12 @@ public class ShopManager : MonoBehaviour
         textPanel.SetActive(false);
         if (precioaux <= 0)
         {
-            diezmo.sprite = diezmoEmocions[2];
-            RealizarFade("Perdiste");
+            diezmo.sprite = diezmoEmocions[2 + (!final ? 0 : 3)];
+            StartCoroutine(RealizarFade("Perdiste", 5));
         }
         else
         {
-            diezmo.sprite = diezmoEmocions[1];
+            diezmo.sprite = diezmoEmocions[1 + (!final ? 0 : 3)];
         }
         
         t = 0;

@@ -18,7 +18,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     private CanvasGroup cg;
     [SerializeField] public int price;
     public BreadInventory breadInv;
-    private int crustSoundID = 0;
     private void Awake()
     {
         rt = GetComponent<RectTransform>();
