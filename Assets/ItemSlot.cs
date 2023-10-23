@@ -42,4 +42,47 @@ public class ItemSlot : MonoBehaviour
     {
         return ventas;
     }
+
+    public int getPrice()
+    {
+        int price = 0;
+        
+        for (int i = 0; i < ventas.Count; i++)
+        {
+            switch (ventas[i])
+            {
+                case 0:
+                    price += 5;
+                    break;
+                case 1:
+                    price += 3;
+                    break;
+                case 2:
+                    price += 1;
+                    break;
+            }
+        }
+        return price;
+    }
+    
+    public int getPriceWithTaxes()
+    {
+        int price = 0;
+        for (int i = 0; i < ventas.Count; i++)
+        {
+            switch (ventas[i])
+            {
+                case 0:
+                    price += 3;
+                    break;
+                case 1:
+                    price += 2;
+                    break;
+                case 2:
+                    price += 1;
+                    break;
+            }
+        }
+        return getPrice() + price;
+    }
 }

@@ -34,7 +34,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private bool final = false;
     [SerializeField] private int moral = 0;
     [SerializeField] private BreadInventory bI;
-    
+    [SerializeField] private int auxiliar;
     
     
     private InteractionSystem actual;
@@ -54,6 +54,7 @@ public class ShopManager : MonoBehaviour
     private int diasaux = 0;
     private int angleArrow = 0;
     private bool escribir = false;
+    private int preciofinal;
     private void Start()
     {
         dinero.text = ""+precioaux;
@@ -76,12 +77,16 @@ public class ShopManager : MonoBehaviour
     // es como un for pero con variables auxiliares
     public void DiasStart()
     {
+        if (diasaux == 3)
+        {
+            precioDiezmo = 30;
+        }
         bI.ChangeBreads(dias[diasaux].quantity);
         if (diasaux < dias.Count - 1)
         {
             if (diasaux != 0)
             {
-                StartCoroutine(RealizarFade("Día " + (diasaux+1), 2));
+                StartCoroutine(RealizarFade("Day " + (diasaux+1), 2));
             }
             else
             {
@@ -92,7 +97,7 @@ public class ShopManager : MonoBehaviour
         }
         if(diasaux + 1 == dias.Count)
 		{
-            StartCoroutine(RealizarFade("Día " + (diasaux + 1), 2));
+            StartCoroutine(RealizarFade("Day " + (diasaux + 1), 2));
             diezmo.sprite = obreroFinal;
             final = true;
 		}
@@ -218,18 +223,36 @@ public class ShopManager : MonoBehaviour
 
         // si si estan, te muestra un good ending (string) y te aumenta o disminuye grados de moral 
         int multiplierAngle = actual.characterRelevance > 0 ? 3 : 1;
+        int price;
         if (todosEnB)
         {
-            text.text = actual.goodEnding;
-            basePersona.sprite = actual.personas[1];
             if (actual.nobleza) 
             {
-                angleArrow = -15 * multiplierAngle;
-                moral -= 1 * multiplierAngle;
-                StartCoroutine(arrowAnimation());
+                if (impuestos.isOn)
+                {
+                    angleArrow = 15 * multiplierAngle;
+                    moral += 1 * multiplierAngle;
+                    StartCoroutine(arrowAnimation());
+                    
+                    text.text = actual.badEnding;
+                    basePersona.sprite = actual.personas[2];
+                }
+                else
+                {
+                    angleArrow = -15 * multiplierAngle;
+                    moral -= 1 * multiplierAngle;
+                    StartCoroutine(arrowAnimation());
+                    text.text = actual.goodEnding;
+                    basePersona.sprite = actual.personas[1];
+                }
+                
+                
             }
             else
             {
+                text.text = actual.goodEnding;
+                basePersona.sprite = actual.personas[1];
+                
                 angleArrow = 15 * multiplierAngle;
                 moral += 1 * multiplierAngle;
                 StartCoroutine(arrowAnimation());
@@ -237,28 +260,26 @@ public class ShopManager : MonoBehaviour
             // si tiene puestos los impuestos, los suma por un for y los muestra
             if (impuestos.isOn)
             {
-                int taxes = 0;
-                for (int i = 0; i < actual.panesAceptados.Count; i++)
+                price = actual.getPriceWithTaxes();
+                precio.text = "" + price;
+                if (actual.price < actual.getPriceWithTaxes())
                 {
-                    switch (actual.panesAceptados[i])
-                    {
-                        case 0:
-                            taxes += 3;
-                            break;
-                        case 1:
-                            taxes += 2;
-                            break;
-                        case 2:
-                            taxes += 1;
-                            break;
-                    }
+                    price = actual.price;
                 }
-                precio.text = $"{precioaux + taxes}";
-                precioaux += taxes;
+                
+                precioaux += price;
                 SoundController.Instance.PlaySound(2, 1, gameObject.GetComponent<AudioSource>());
             }
             else
             {
+                price = actual.getPrice();
+                precio.text = "" + price;
+                if (actual.price < actual.getPrice())
+                {
+                    price = actual.price;
+                }
+                
+                precioaux += price;
                 SoundController.Instance.PlaySound(2, 0, gameObject.GetComponent<AudioSource>());
 			}
         }
@@ -280,29 +301,27 @@ public class ShopManager : MonoBehaviour
                 moral -= 1 * multiplierAngle;
                 StartCoroutine(arrowAnimation());
             }
+            
+            
+            price = bandeja.getPrice();
             if (impuestos.isOn)
             {
-                int taxes=0;
-                for (int i = 0; i < bandeja.getVentas().Count; i++)
+                price = bandeja.getPriceWithTaxes();
+                if (actual.price < bandeja.getPriceWithTaxes())
                 {
-                    switch (bandeja.getVentas()[i])
-                    {
-                        case 0:
-                            taxes += 3;
-                            break;
-                        case 1:
-                            taxes += 2;
-                            break;
-                        case 2:
-                            taxes += 1;
-                            break;
-                    }
+                    price = actual.price;
                 }
-                precio.text = $"{precioaux + taxes}";
-                precioaux += taxes;
+            }
+            else
+            {
+                price = bandeja.getPrice();
+                if (actual.price < bandeja.getPrice())
+                {
+                    price = actual.price;
+                }
             }
         }
-        
+        Debug.Log(precio.text);
         // si el precio de la bandeja es mayor al pedido, se queda el precio maximo pedido
         if (actual.price < bandeja.price)
         {
@@ -322,7 +341,11 @@ public class ShopManager : MonoBehaviour
             
             Destroy(bandeja.objetos[0]);
         }
-        dinero.text = $"{precioaux}";
+        
+        Debug.Log(price);
+        
+        preciofinal += auxiliar;
+        dinero.text = $"{preciofinal}";
     }
     
     // la persona se va xd 
@@ -359,7 +382,6 @@ public class ShopManager : MonoBehaviour
         obispotext.gameObject.SetActive(true);
         obispotext.GetComponent<TMP_Text>().text = text;
         yield return new WaitForSeconds(2.0f);
-        
         if(final && final2)
 		{
             SceneManager.LoadScene("Game");
@@ -405,7 +427,7 @@ public class ShopManager : MonoBehaviour
                 if(escribir)
                 {
                     text.text += letra; 
-                    yield return new WaitForSeconds(0.1f);
+                    yield return new WaitForSeconds(0.03f);
                 }
             }
             yield return new WaitForSeconds(2f);
@@ -416,9 +438,9 @@ public class ShopManager : MonoBehaviour
         
         yield return new WaitForSeconds(2);
 
-        precioaux -= costo;
-        dinero.text = $"{precioaux}";
-		if (final)
+        preciofinal -= costo;
+        dinero.text = $"{preciofinal}";
+        if (final)
 		{
             if(moral >= 0)
 			{
@@ -445,7 +467,7 @@ public class ShopManager : MonoBehaviour
         if (precioaux <= 0)
         {
             diezmo.sprite = diezmoEmocions[2 + (!final ? 0 : 3)];
-            StartCoroutine(RealizarFade("Perdiste", 5));
+            StartCoroutine(RealizarFade("Perdiste", 5, true));
         }
         else
         {
@@ -469,58 +491,38 @@ public class ShopManager : MonoBehaviour
     // es como el de dinero de arriba
     private void Update()
     {
-        
-        if (actual.price < bandeja.price)
+        if (actual.getPrice() < bandeja.getPrice())
         {
-            precio.text = $"{actual.price}";
+            auxiliar = actual.getPrice();
+            precio.text = $"{actual.getPrice()}";
             if (impuestos.isOn)
             {
-                int taxes=0;
-                for (int i = 0; i < actual.panesAceptados.Count; i++)
+                auxiliar = actual.getPriceWithTaxes();
+                precio.text = $"{actual.getPriceWithTaxes()}";
+                if (actual.price < actual.getPriceWithTaxes())
                 {
-                    switch (actual.panesAceptados[i])
-                    {
-                        case 0:
-                            taxes += 3;
-                            break;
-                        case 1:
-                            taxes += 2;
-                            break;
-                        case 2:
-                            taxes += 1;
-                            break;
-                    }
+                    auxiliar = actual.price;
+                    precio.text = $"{actual.price}";
                 }
-                precio.text = $"{Int32.Parse(precio.text) + taxes}";
             }
         }
         else
         {
-            precio.text = $"{bandeja.price}";
+            auxiliar = bandeja.getPrice();
+            precio.text = $"{bandeja.getPrice()}";
             if (impuestos.isOn)
             {
-                int taxes=0;
-                for (int i = 0; i < bandeja.getVentas().Count; i++)
+                auxiliar = bandeja.getPriceWithTaxes();
+                precio.text = $"{bandeja.getPriceWithTaxes()}";
+                if (actual.price < bandeja.getPriceWithTaxes())
                 {
-                    switch (bandeja.getVentas()[i])
-                    {
-                        case 0:
-                            taxes += 3;
-                            break;
-                        case 1:
-                            taxes += 2;
-                            break;
-                        case 2:
-                            taxes += 1;
-                            break;
-                    }
+                    auxiliar = actual.price;
+                    precio.text = $"{actual.price}";
                 }
-                precio.text = $"{Int32.Parse(precio.text) + taxes}";
             }
-            
         }
 
-        
+
 
         if (Int32.Parse(precio.text) == 0)
         {
