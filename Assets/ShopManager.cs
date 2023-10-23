@@ -181,7 +181,7 @@ public class ShopManager : MonoBehaviour
             if(escribir)
 			{
                 text.text += letra; 
-                yield return new WaitForSeconds(0.03f);
+                yield return new WaitForSeconds(0.015f);
 			}
         }
         botones[1].interactable = true;
@@ -457,7 +457,7 @@ public class ShopManager : MonoBehaviour
 		{
             personasaux = 0;
             diasaux = 0;
-            text.text = "te cargo el payaso";
+            text.text = "Well... it seems you don't have enough funds to pay the tax... <b>This is the end of your business!!</b>";
 		}
         SoundController.Instance.PlaySound(2, 3, gameObject.GetComponent<AudioSource>());
 

@@ -1308,7 +1308,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 805a0ba75b2fbac4c9c1a1221ad805a3, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1462,16 +1462,16 @@ MonoBehaviour:
   Music:
   - clip: {fileID: 8300000, guid: 1d480e5c6d83f7349a48d1dd4fc35c47, type: 3}
     isLoop: 1
-    volume: 0.3
+    volume: 0.2
   - clip: {fileID: 8300000, guid: e5daa4f32374c6a4a917b10b1d6c8478, type: 3}
     isLoop: 1
-    volume: 0.3
+    volume: 0.2
   - clip: {fileID: 8300000, guid: 4c8dd758ddab5e74b82e2e3c51cb92a7, type: 3}
     isLoop: 1
-    volume: 0.3
+    volume: 0.2
   - clip: {fileID: 8300000, guid: 16ac81fb9fb568643a539f236964ca43, type: 3}
     isLoop: 1
-    volume: 0.3
+    volume: 0.2
   source: {fileID: 589623599}
   MusicPlayers:
   - {fileID: 1944145393}
@@ -2725,9 +2725,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dia 3
+  m_text: Day 3
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35575182748993448b32f8d334ad186b, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2791,7 +2791,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &959176978
@@ -2964,7 +2964,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 44
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 35575182748993448b32f8d334ad186b, type: 2}
   m_sharedMaterial: {fileID: -8135747359154112706, guid: 35575182748993448b32f8d334ad186b, type: 2}
@@ -3378,7 +3378,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: rye loave
+  m_text: rye loaf
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 35575182748993448b32f8d334ad186b, type: 2}
   m_sharedMaterial: {fileID: -8135747359154112706, guid: 35575182748993448b32f8d334ad186b, type: 2}
@@ -3405,7 +3405,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 38.5
+  m_fontSize: 44.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3957,7 +3957,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: $44
+  m_text: $0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 35575182748993448b32f8d334ad186b, type: 2}
   m_sharedMaterial: {fileID: -8135747359154112706, guid: 35575182748993448b32f8d334ad186b, type: 2}
@@ -4354,7 +4354,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: x 44
+  m_text: x 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 35575182748993448b32f8d334ad186b, type: 2}
   m_sharedMaterial: {fileID: -8135747359154112706, guid: 35575182748993448b32f8d334ad186b, type: 2}
@@ -4474,101 +4474,396 @@ MonoBehaviour:
   dias:
   - dia:
     - dialogos:
-      - keloke bro te habla mitel bi
-      - 'asi mimo, mitel bi '
-      - quiero felicitarte xq eres el ganador de los 2000 dolal
-      - felicidades
-      price: 15
+      - Certainly, I, the bishop of this town, do hereby declare your bakery officially
+        open.
+      - <b>The loaves are on the right</b>, and 'tis but a matter of taking them
+        from there when a customer request.
+      - A lot of folks live 'round these parts, from the <b>bourgeois</b> to the
+        <b>working class</b>. You can decide who to cater to, and your business will
+        go in the direction you want based on your sales.
+      - Nonetheless, as you are aware, you must pay a certain daily tax as an offering
+        to the church.
+      - Do we make any significant impact on your business? Likely not, but your
+        cooperation shall make an impact on our Lord and la grande France.
+      - You may collect this tax from your customers as well, with the option below.
+      - HOWEVER, only from the laborers
+      - The nobility has no obligation to pay the tax. (And neither do I.)
+      - 'And it would be best for you to have the 20 francs ready by the end of the
+        day. Else, I shall make this business fall in the blink of an eye. '
+      - Now let's practice, Give me <b>a rye loave($1), remember i don't pay taxes</b>
+      price: 1
       personas:
-      - {fileID: 370114219, guid: 2dcdbfc8b48b561498718f40649c6ef5, type: 3}
-      - {fileID: -892642701, guid: 2dcdbfc8b48b561498718f40649c6ef5, type: 3}
-      - {fileID: 1009908819, guid: 2dcdbfc8b48b561498718f40649c6ef5, type: 3}
-      panesAceptados: 000000000000000000000000
-      goodEnding: grac bro
-      badEnding: que te pasa bro
+      - {fileID: -1501713343, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
+      - {fileID: 523533682, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
+      - {fileID: -846073766, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
+      panesAceptados: 02000000
+      goodEnding: "Great! Good luck, dear p\xE2tissier, I\u2019ll see you tomorrow!"
+      badEnding: Ugh.. Whatever! Be prepared for tomorrow or I'll close this down!
+      nobleza: 1
+      characterRelevance: 0
+    - dialogos:
+      - Young brother... the economy is in <b>the worst</b> of conditions.
+      - I would offer to this poor man, stripped of his home and bankrupt, some bread...
+        2 francs is what I have for <b>2 rye loaves ($4)</b>.
+      price: 2
+      personas:
+      - {fileID: 240831082, guid: 1deeb7882c1c6b048ab36626c76d9835, type: 3}
+      - {fileID: 1003057016, guid: 1deeb7882c1c6b048ab36626c76d9835, type: 3}
+      - {fileID: -1637065420, guid: 1deeb7882c1c6b048ab36626c76d9835, type: 3}
+      panesAceptados: 0200000002000000
+      goodEnding: You are a kind soul.
+      badEnding: You will pay with your life...
       nobleza: 0
       characterRelevance: 0
     - dialogos:
-      - keloke bro no te habla mitel bi
-      - 'asi mimo, mitel bi '
-      - quiero felicitarte xq eres el ganador de los 2000 dolal
-      - felicidades
-      price: 15
+      - 'Today, I feel modest... it''s <b>the second time</b> I''ve felt this way. '
+      - How about <b>1 brioche($5) and 2 baguettes($6).</b>
+      price: 11
+      personas:
+      - {fileID: -2006160325, guid: 398062a2e38f31c4f989db377c0742f4, type: 3}
+      - {fileID: 1943860426, guid: 398062a2e38f31c4f989db377c0742f4, type: 3}
+      - {fileID: 2114333845, guid: 398062a2e38f31c4f989db377c0742f4, type: 3}
+      panesAceptados: 000000000100000001000000
+      goodEnding: As I expected.
+      badEnding: Terrible service!!
+      nobleza: 1
+      characterRelevance: 0
+    - dialogos:
+      - 'I would like 1 croissant... oh, you don''t sell those? How unfortunate... '
+      - Perhaps <b>1 brioche($5), 1 baguette($3), another brioche($5), and 1 rye
+        loaf($1)</b> for my butler should suffice.
+      price: 14
+      personas:
+      - {fileID: 201653083, guid: 3770e22209738774db5a13cacb64a854, type: 3}
+      - {fileID: 461863210, guid: 3770e22209738774db5a13cacb64a854, type: 3}
+      - {fileID: 491668741, guid: 3770e22209738774db5a13cacb64a854, type: 3}
+      panesAceptados: 00000000000000000100000002000000
+      goodEnding: As I expected.
+      badEnding: I will have my father come for you!!
+      nobleza: 1
+      characterRelevance: 0
+    textosDiezmo: []
+    quantity: 050000000500000005000000
+  - dia:
+    - dialogos:
+      - Good morning... give me 5 ry-
+      - <B>Curse it!</b> I don't have enough money to pay for it.
+      - 'I need <b>3 ryes($6)...</b> but I can only afford 2($4)... would that be
+        okay? I need to feed my 3 children. '
+      price: 4
+      personas:
+      - {fileID: -1297867299, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
+      - {fileID: 641671573, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
+      - {fileID: 764638196, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
+      panesAceptados: 020000000200000002000000
+      goodEnding: Bless you!!
+      badEnding: Why are there such cruel people?... I'll look elsewhere...
+      nobleza: 0
+      characterRelevance: 0
+    - dialogos:
+      - Ugh, I have no choice but to buy from a place like this.
+      - Do you have anything edible...? Perhaps something that won't give me indigestion.
+      - One baguette should be quite simple for you. How about 1 brioche... no, <b>1
+        baguette($3), 1 brioche($5)</b>, and <b>another baguette($3).</b>
+      price: 11
       personas:
       - {fileID: -303746212, guid: cd2a440c5764c314aa41a6ad1d6d6f1d, type: 3}
       - {fileID: -46820309, guid: cd2a440c5764c314aa41a6ad1d6d6f1d, type: 3}
       - {fileID: -1753127701, guid: cd2a440c5764c314aa41a6ad1d6d6f1d, type: 3}
-      panesAceptados: 000000000000000000000000
-      goodEnding: grac bro
-      badEnding: que te pasa bro
-      nobleza: 0
-      characterRelevance: 1
-    textosDiezmo: []
-  - dia:
+      panesAceptados: 000000000100000001000000
+      goodEnding: You do know about business.
+      badEnding: What do you take me for...? Don't you know I can ruin this business?
+      nobleza: 1
+      characterRelevance: 0
     - dialogos:
-      - keloke bro te habla mitel bi, hoy es dia 2
-      - 'asi mimo, mitel bi '
-      - quiero felicitarte xq eres el ganador de los 2000 dolal
-      - felicidades
-      price: 15
-      personas:
-      - {fileID: 781916898, guid: 6f2eecbae5ae9014f8a4ef1cad8070cb, type: 3}
-      - {fileID: 1142902555, guid: 6f2eecbae5ae9014f8a4ef1cad8070cb, type: 3}
-      - {fileID: 718072630, guid: 6f2eecbae5ae9014f8a4ef1cad8070cb, type: 3}
-      panesAceptados: 000000000000000000000000
-      goodEnding: grac bro
-      badEnding: que te pasa bro
-      nobleza: 0
-      characterRelevance: 2
-    - dialogos:
-      - keloke bro te habla mitel bi
-      - 'asi mimo, mitel bi '
-      - quiero felicitarte xq eres el ganador de los 2000 dolal
-      - felicidades
-      price: 15
+      - Baker... I implore you from the depths of my heart to have compassion for
+        me.
+      - If I don't get <b>a baguette($3)</b> for today, my parents will cast me out
+        of the house... I don't know what else to do; they took all the money I had,
+        and they won't accept anything less than 1 rye loaf.
+      price: 0
       personas:
       - {fileID: 370114219, guid: 2dcdbfc8b48b561498718f40649c6ef5, type: 3}
       - {fileID: -892642701, guid: 2dcdbfc8b48b561498718f40649c6ef5, type: 3}
       - {fileID: 1009908819, guid: 2dcdbfc8b48b561498718f40649c6ef5, type: 3}
-      panesAceptados: 000000000000000000000000
-      goodEnding: grac bro
-      badEnding: que te pasa bro
+      panesAceptados: 01000000
+      goodEnding: Thank you very much, sir!! My parents are grateful to you.
+      badEnding: May God have mercy on me.
       nobleza: 0
       characterRelevance: 0
-    textosDiezmo: []
-  - dia:
     - dialogos:
-      - keloke bro te habla mitel bi, hoy es dia 2
-      - 'asi mimo, mitel bi '
-      - quiero felicitarte xq eres el ganador de los 2000 dolal
-      - felicidades
-      price: 15
+      - Is it a great day to shop here, don't you think?
+      - How's the business? Many commoners say the economy is in <b>the worst situation</b>,
+        but I believe everything is fine.
+      - Perhaps if people worked harder, the economy wouldn't affect them. Hehe!
+      - The other day, I tried a fantastic baguette. How about giving me <b>2($6)</b>?
+      price: 6
       personas:
-      - {fileID: 781916898, guid: 6f2eecbae5ae9014f8a4ef1cad8070cb, type: 3}
-      - {fileID: 1142902555, guid: 6f2eecbae5ae9014f8a4ef1cad8070cb, type: 3}
-      - {fileID: 718072630, guid: 6f2eecbae5ae9014f8a4ef1cad8070cb, type: 3}
-      panesAceptados: 000000000000000000000000
-      goodEnding: grac bro
-      badEnding: que te pasa bro
-      nobleza: 0
-      characterRelevance: 2
-    - dialogos:
-      - keloke bro te habla mitel bi
-      - 'asi mimo, mitel bi '
-      - quiero felicitarte xq eres el ganador de los 2000 dolal
-      - felicidades
-      price: 15
-      personas:
-      - {fileID: 370114219, guid: 2dcdbfc8b48b561498718f40649c6ef5, type: 3}
-      - {fileID: -892642701, guid: 2dcdbfc8b48b561498718f40649c6ef5, type: 3}
-      - {fileID: 1009908819, guid: 2dcdbfc8b48b561498718f40649c6ef5, type: 3}
-      panesAceptados: 000000000000000000000000
-      goodEnding: grac bro
-      badEnding: que te pasa bro
-      nobleza: 0
+      - {fileID: 1684414020, guid: 71d9b5d6ad087ef4982e4182d89bf42c, type: 3}
+      - {fileID: -1250204432, guid: 71d9b5d6ad087ef4982e4182d89bf42c, type: 3}
+      - {fileID: 807530646, guid: 71d9b5d6ad087ef4982e4182d89bf42c, type: 3}
+      panesAceptados: 0100000001000000
+      goodEnding: Thank you very much! Long live the royalty.
+      badEnding: You're a darned heretic!!
+      nobleza: 1
       characterRelevance: 0
     textosDiezmo:
-    - a
+    - 'I have returned to your establishment and... '
+    - I see that your business is afloat; I shall pray for it to stay that way.
+    quantity: 030000000300000003000000
+  - dia:
+    - dialogos:
+      - I heard <b>the queen</b> will be passing through this area; I hope I don't
+        have to see her face...
+      - I don't have much money. Give me the cheapest bread you have.
+      price: 2
+      personas:
+      - {fileID: -1297867299, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
+      - {fileID: 641671573, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
+      - {fileID: 764638196, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
+      panesAceptados: 02000000
+      goodEnding: God bless you.
+      badEnding: All the bourgeois are the same!
+      nobleza: 0
+      characterRelevance: 0
+    - dialogos:
+      - "That <b>darn queen will arrive to this place\u2026</b> if I were in her
+        place, I would stop collecting taxes and make that money support the true
+        workers of France."
+      - Give me <b>2 baguettes($6)</b>, please.
+      price: 10
+      personas:
+      - {fileID: 1479967341, guid: 2a17791ac27fa4f4fb526e3bb037fd6f, type: 3}
+      - {fileID: -431312012, guid: 2a17791ac27fa4f4fb526e3bb037fd6f, type: 3}
+      - {fileID: -456857704, guid: 2a17791ac27fa4f4fb526e3bb037fd6f, type: 3}
+      panesAceptados: 0100000001000000
+      goodEnding: Bless you.
+      badEnding: Why are there such cruel people?... I'll look elsewhere...
+      nobleza: 0
+      characterRelevance: 0
+    - dialogos:
+      - This whole place feels so... filled with <b>humility...</b> and <b>filth...</b>
+      - Oh, I hadn't noticed amidst all this mess, I suppose I'm rather understated,
+        but I shall introduce myself all the same.
+      - I am the grand queen of France, le magnifique, <b>Marie Antoinette.</b>
+      - Not long ago, many of these low-class vermin approached <b>MY</b> palace
+        to complain about the price of bread...
+      - I don't understand what they're whining about, the bread is just as delicious
+        as ever. <b>HOHOHO!</b>
+      - Anyway, I've come here to request 3... <b>NO! 4 of your exquisite brioches($20)</b>,
+        in honor of the great royalty.
+      price: 20
+      personas:
+      - {fileID: 781916898, guid: 6f2eecbae5ae9014f8a4ef1cad8070cb, type: 3}
+      - {fileID: 1142902555, guid: 6f2eecbae5ae9014f8a4ef1cad8070cb, type: 3}
+      - {fileID: 718072630, guid: 6f2eecbae5ae9014f8a4ef1cad8070cb, type: 3}
+      panesAceptados: 00000000000000000000000000000000
+      goodEnding: <b>HOHOHO!</b> Delicious! The poor keep complaining that they lack
+        for bread... why don't they simply eat one of these? They're so affordable.
+      badEnding: <b>HOW DARE YOU!!!</b> I'll make sure that your head gets cut off
+        in <b>la guillotine!!</b>
+      nobleza: 1
+      characterRelevance: 2
+    textosDiezmo:
+    - I have returned to your establishment and...
+    - I see that your business is afloat; I shall pray for it to stay that way.
+    - Hmm... I see that things are... going rather well. We shall speak tomorrow.
+    - I would recall reading somewhere that <b>someone very important</b> is roaming
+      through the town.
+    - Be prepared.
+    quantity: 040000000300000003000000
+  - dia:
+    - dialogos:
+      - Did you hear what the queen said? "If the poor can't afford to eat bread,
+        <b>let them eat brioche."</b>
+      - The queen is a wonderful woman; she's told the poor to eat something as simple
+        as bread to eat a more sophisticated bread like a brioche, <b>which is very
+        wise!</b>
+      - The baguettes weren't bad at all... give me <b>1 brioche($5) and 2 more baguettes($6).</b>
+      price: 11
+      personas:
+      - {fileID: 1684414020, guid: 71d9b5d6ad087ef4982e4182d89bf42c, type: 3}
+      - {fileID: -1250204432, guid: 71d9b5d6ad087ef4982e4182d89bf42c, type: 3}
+      - {fileID: 807530646, guid: 71d9b5d6ad087ef4982e4182d89bf42c, type: 3}
+      panesAceptados: 000000000100000001000000
+      goodEnding: You're a darned heretic!!
+      badEnding: Thank you very much! Long live the royalty.
+      nobleza: 1
+      characterRelevance: 0
+    - dialogos:
+      - I don't know why those filthy workers complain about the queen; it's their
+        fault for being born so poor.
+      - Anyway... give me <b>1 baguette($3)</b> for myself and <b>2 rye loaves($2)</b>
+        for my butlers.
+      price: 5
+      personas:
+      - {fileID: 201653083, guid: 3770e22209738774db5a13cacb64a854, type: 3}
+      - {fileID: 461863210, guid: 3770e22209738774db5a13cacb64a854, type: 3}
+      - {fileID: 491668741, guid: 3770e22209738774db5a13cacb64a854, type: 3}
+      panesAceptados: 010000000200000002000000
+      goodEnding: As I expected.
+      badEnding: 'I will have my father come for you!! '
+      nobleza: 1
+      characterRelevance: 0
+    - dialogos:
+      - That witch of a queen... who does she think she is to insult us in such a
+        way.
+      - My family and I are starving... I can only afford <b>2 rye loaves($4)</b>,
+        but I need <b>3($6)</b>, please...
+      price: 4
+      personas:
+      - {fileID: 240831082, guid: 1deeb7882c1c6b048ab36626c76d9835, type: 3}
+      - {fileID: 1003057016, guid: 1deeb7882c1c6b048ab36626c76d9835, type: 3}
+      - {fileID: -1637065420, guid: 1deeb7882c1c6b048ab36626c76d9835, type: 3}
+      panesAceptados: 020000000200000002000000
+      goodEnding: You are a kind soul.
+      badEnding: You will pay with your life...
+      nobleza: 0
+      characterRelevance: 0
+    - dialogos:
+      - Have you heard what the queen said? God, the poor are poor because they want
+        to be, cursed wretches.
+      - "Quickly, give me <b>2 brioche($10) and 1 baguette($3)\u2026</b> no, without
+        brioches, and <b>1 more baguette($3)</b>."
+      price: 6
+      personas:
+      - {fileID: -303746212, guid: cd2a440c5764c314aa41a6ad1d6d6f1d, type: 3}
+      - {fileID: -46820309, guid: cd2a440c5764c314aa41a6ad1d6d6f1d, type: 3}
+      - {fileID: -1753127701, guid: cd2a440c5764c314aa41a6ad1d6d6f1d, type: 3}
+      panesAceptados: 0100000001000000
+      goodEnding: You do know about business.
+      badEnding: What do you take me for...? Don't you know I can ruin this business?
+      nobleza: 1
+      characterRelevance: 0
+    - dialogos:
+      - The queen is right, if they can't eat bread, why not eat brioche? What a
+        great statement from Her Majesty.
+      - I'll take <b>1 brioche($5) and 2 rye loaves($2)</b> for my maids.
+      price: 7
+      personas:
+      - {fileID: -303746212, guid: cd2a440c5764c314aa41a6ad1d6d6f1d, type: 3}
+      - {fileID: -46820309, guid: cd2a440c5764c314aa41a6ad1d6d6f1d, type: 3}
+      - {fileID: -1753127701, guid: cd2a440c5764c314aa41a6ad1d6d6f1d, type: 3}
+      panesAceptados: 000000000200000002000000
+      goodEnding: As I expected.
+      badEnding: Terrible service!!
+      nobleza: 1
+      characterRelevance: 0
+    textosDiezmo:
+    - Well, well, I see that your business has improved quite a bit...
+    - I shall have to raise the tax price for a greater good <b>($30).</b>
+    - The rumors tell that, after what the queen mentioned, <b>one of those revolutionary
+      speakers</b> is lurking around here.
+    - Be prepared.
+    quantity: 060000000600000006000000
+  - dia:
+    - dialogos:
+      - I heard that the medic, <b>Jean Paul Marat</b>, will be around here; it's
+        good to know that someone looks out for the working class.
+      - Give me <b>3 ryes($6)<$b>.
+      price: 6
+      personas:
+      - {fileID: -1297867299, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
+      - {fileID: 641671573, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
+      - {fileID: 764638196, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
+      panesAceptados: 020000000200000002000000
+      goodEnding: God bless you.
+      badEnding: All the bourgeois are the same!
+      nobleza: 0
+      characterRelevance: 0
+    - dialogos:
+      - Be careful, I heard one of <b>those activists</b> will be in this area.
+      - Give me <b>1 brioche($5) and 1 baguette($3).</b>
+      price: 8
+      personas:
+      - {fileID: -2006160325, guid: 398062a2e38f31c4f989db377c0742f4, type: 3}
+      - {fileID: 1943860426, guid: 398062a2e38f31c4f989db377c0742f4, type: 3}
+      - {fileID: 2114333845, guid: 398062a2e38f31c4f989db377c0742f4, type: 3}
+      panesAceptados: 0000000001000000
+      goodEnding: As I expected.
+      badEnding: Terrible service!!
+      nobleza: 1
+      characterRelevance: 0
+    - dialogos:
+      - France is in a terrible situation, and I can do nothing about it...
+      - Oh, pardon the interruption; I'm just a humble medic here for a bit of bread
+        from this modest establishment.
+      - "However... I understand that you and I share the same feelings, don't we?
+        That same sense of <b>injustice from this sinister bourgeoisie\u2026</b>"
+      - And on top of it all, our Queen won't do anything about it, "Let them eat
+        brioche"... she has no shame at all to say that.
+      - Without further ado, could you provide me with <b>3 Baguettes($15)</b>, if
+        it's not too much trouble?
+      price: 15
+      personas:
+      - {fileID: -123494563, guid: b427a55d3d957fd49b1f70328771b1b5, type: 3}
+      - {fileID: 2116625886, guid: b427a55d3d957fd49b1f70328771b1b5, type: 3}
+      - {fileID: -1778261818, guid: b427a55d3d957fd49b1f70328771b1b5, type: 3}
+      panesAceptados: 010000000100000001000000
+      goodEnding: Thank you very much, my friend! This fresh and delicious bread
+        has inspired me to write my ideas and inspirations for all of France!
+      badEnding: I see now. I understand why the bourgeoisie treats us like mere
+        rats.
+      nobleza: 0
+      characterRelevance: 1
+    textosDiezmo:
+    - I have returned to your establishment and...
+    - I see that your business is afloat; I shall pray for it to stay that way.
+    quantity: 020000000300000003000000
+  - dia:
+    - dialogos:
+      - I heard that the medic, <b>Jean Paul Marat</b>, will be around here; it's
+        good to know that someone looks out for the working class.
+      - Give me <b>3 ryes($6)<$b>.
+      price: 6
+      personas:
+      - {fileID: -1297867299, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
+      - {fileID: 641671573, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
+      - {fileID: 764638196, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
+      panesAceptados: 020000000200000002000000
+      goodEnding: God bless you.
+      badEnding: All the bourgeois are the same!
+      nobleza: 0
+      characterRelevance: 0
+    - dialogos:
+      - Be careful, I heard one of <b>those activists</b> will be in this area.
+      - Give me <b>1 brioche($5) and 1 baguette($3).</b>
+      price: 8
+      personas:
+      - {fileID: -2006160325, guid: 398062a2e38f31c4f989db377c0742f4, type: 3}
+      - {fileID: 1943860426, guid: 398062a2e38f31c4f989db377c0742f4, type: 3}
+      - {fileID: 2114333845, guid: 398062a2e38f31c4f989db377c0742f4, type: 3}
+      panesAceptados: 0000000001000000
+      goodEnding: As I expected.
+      badEnding: Terrible service!!
+      nobleza: 1
+      characterRelevance: 0
+    - dialogos:
+      - France is in a terrible situation, and I can do nothing about it...
+      - Oh, pardon the interruption; I'm just a humble medic here for a bit of bread
+        from this modest establishment.
+      - "However... I understand that you and I share the same feelings, don't we?
+        That same sense of <b>injustice from this sinister bourgeoisie\u2026</b>"
+      - And on top of it all, our Queen won't do anything about it, "Let them eat
+        brioche"... she has no shame at all to say that.
+      - Without further ado, could you provide me with <b>3 Baguettes($15)</b>, if
+        it's not too much trouble?
+      price: 15
+      personas:
+      - {fileID: -123494563, guid: b427a55d3d957fd49b1f70328771b1b5, type: 3}
+      - {fileID: 2116625886, guid: b427a55d3d957fd49b1f70328771b1b5, type: 3}
+      - {fileID: -1778261818, guid: b427a55d3d957fd49b1f70328771b1b5, type: 3}
+      panesAceptados: 010000000100000001000000
+      goodEnding: Thank you very much, my friend! This fresh and delicious bread
+        has inspired me to write my ideas and inspirations for all of France!
+      badEnding: I see now. I understand why the bourgeoisie treats us like mere
+        rats.
+      nobleza: 0
+      characterRelevance: 1
+    textosDiezmo:
+    - I have returned to your establishment and...
+    - I see that your business is afloat; I shall pray for it to stay that way.
+    quantity: 020000000300000003000000
   diezmo: {fileID: 2033698553}
   diezmoEmocions:
   - {fileID: -1501713343, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
@@ -4587,9 +4882,10 @@ MonoBehaviour:
   obreroFinal: {fileID: 240831082, guid: 1deeb7882c1c6b048ab36626c76d9835, type: 3}
   final: 0
   moral: 0
+  bI: {fileID: 1952792753}
   velocidad: 0.5
   precioDiezmo: 20
-  textoDiezmo: 'keloke bro el precio de hoy es '
+  textoDiezmo: 'Well, today''s price is '
   moralpoints: 10
 --- !u!4 &1486894633
 Transform:
@@ -4872,7 +5168,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: x 44
+  m_text: x 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 35575182748993448b32f8d334ad186b, type: 2}
   m_sharedMaterial: {fileID: -8135747359154112706, guid: 35575182748993448b32f8d334ad186b, type: 2}
@@ -5346,7 +5642,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1762510562
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6175,7 +6471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1938905938
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6968,7 +7264,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: x 44
+  m_text: x 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 35575182748993448b32f8d334ad186b, type: 2}
   m_sharedMaterial: {fileID: -8135747359154112706, guid: 35575182748993448b32f8d334ad186b, type: 2}
@@ -6995,7 +7291,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60.35
+  m_fontSize: 68.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

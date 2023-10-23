@@ -68,7 +68,7 @@ public class SoundController : MonoBehaviour
 
     public IEnumerator MusicFade(int id)
 	{
-        if (MusicPlayers[id].GetComponent<AudioSource>().volume == 0.3f) yield return null;
+        if (MusicPlayers[id].GetComponent<AudioSource>().volume == 0.2f) yield return null;
         float timeElapsed = 0;
 
         while (timeElapsed < 1)
@@ -77,10 +77,10 @@ public class SoundController : MonoBehaviour
 			{
                 if(id == i)
 				{
-                    MusicPlayers[i].GetComponent<AudioSource>().volume = Mathf.Lerp(0, 0.3f, timeElapsed / 1);
+                    MusicPlayers[i].GetComponent<AudioSource>().volume = Mathf.Lerp(0, 0.2f, timeElapsed / 1);
                 }else if(MusicPlayers[i].GetComponent<AudioSource>().volume > 0.1)
 				{
-                    MusicPlayers[i].GetComponent<AudioSource>().volume = Mathf.Lerp(0.3f, 0, timeElapsed / 1);
+                    MusicPlayers[i].GetComponent<AudioSource>().volume = Mathf.Lerp(0.2f, 0, timeElapsed / 1);
                 }
 			}
             timeElapsed += Time.deltaTime;
