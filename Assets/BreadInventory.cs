@@ -24,6 +24,24 @@ public class BreadInventory : MonoBehaviour
     public int breadFallSoundID = 0;
     public int thisbread;
 
+    private void Start()
+    {
+        
+    }
+
+    public void Spawn()
+    {
+        for (int i = 0; i < prefabs.Count; i++)
+        {
+            Image nuevoObjetoHijo = Instantiate(prefabs[i], canva.transform, true);
+            float scaleReadjust = 2 / canva.transform.localScale.x;
+            nuevoObjetoHijo.transform.localScale = Vector3.one * scaleReadjust;
+            nuevoObjetoHijo.gameObject.GetComponent<DragDrop>().breadInv = gameObject.GetComponent<BreadInventory>();
+            actualImages[i] = nuevoObjetoHijo;
+            nuevoObjetoHijo.rectTransform.position = positions[i].position;
+        }
+    }
+
     public void ChangeBreads(List<int> a)
     {
         quantitys = a;
@@ -31,6 +49,7 @@ public class BreadInventory : MonoBehaviour
         {
             positions[i].GetComponentInChildren<TMP_Text>().text = "x " + quantitys[i];
         }
+        Spawn();
     }
     public void movePanel()
     {
