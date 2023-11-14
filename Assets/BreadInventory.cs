@@ -47,7 +47,7 @@ public class BreadInventory : MonoBehaviour
         quantitys = a;
         for (int i = 0; i < quantitys.Count; i++)
         {
-            positions[i].GetComponentInChildren<TMP_Text>().text = "x " + quantitys[i];
+            positions[i].GetComponentInChildren<TMP_Text>().text = "x " + (quantitys[i]+1);
         }
         Spawn();
     }
@@ -84,6 +84,7 @@ public class BreadInventory : MonoBehaviour
         {
             actualImages[type].transform.SetParent(canvaPadre.transform);
             quantitys[type] --;
+            positions[type].GetComponentInChildren<TMP_Text>().text = "x " + (quantitys[type]+1);
             if (quantitys[type] < 0) return;
             Image nuevoObjetoHijo = Instantiate(prefabs[type], canva.transform, true);
             float scaleReadjust = 2 / canva.transform.localScale.x;
@@ -91,7 +92,7 @@ public class BreadInventory : MonoBehaviour
             nuevoObjetoHijo.gameObject.GetComponent<DragDrop>().breadInv = gameObject.GetComponent<BreadInventory>();
             actualImages[type] = nuevoObjetoHijo;
             nuevoObjetoHijo.rectTransform.position = positions[type].position;
-            positions[type].GetComponentInChildren<TMP_Text>().text = "x " + quantitys[type];
+            
         }
         
     }
