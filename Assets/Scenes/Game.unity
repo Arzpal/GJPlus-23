@@ -4688,6 +4688,10 @@ MonoBehaviour:
       - 'And it would be best for you to have the 20 francs ready by the end of the
         day. Else, I shall make this business fall in the blink of an eye. '
       - Now let's practice, Give me <b>a rye loave($1), remember i don't pay taxes</b>
+      dialogos2:
+      - dialogo: Certainly, I, the bishop of this town, do hereby declare your bakery
+          officially open.
+        reaccion: {fileID: 1684414020, guid: 71d9b5d6ad087ef4982e4182d89bf42c, type: 3}
       price: 2
       personas:
       - {fileID: -1501713343, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
@@ -4702,6 +4706,7 @@ MonoBehaviour:
       - Young brother... the economy is in <b>the worst</b> of conditions.
       - I would offer to this poor man, stripped of his home and bankrupt, some bread...
         2 francs is what I have for <b>2 rye loaves ($4)</b>.
+      dialogos2: []
       price: 2
       personas:
       - {fileID: 240831082, guid: 1deeb7882c1c6b048ab36626c76d9835, type: 3}
@@ -4715,6 +4720,7 @@ MonoBehaviour:
     - dialogos:
       - 'Today, I feel modest... it''s <b>the second time</b> I''ve felt this way. '
       - How about <b>1 brioche($5) and 2 baguettes($6).</b>
+      dialogos2: []
       price: 18
       personas:
       - {fileID: -2006160325, guid: 398062a2e38f31c4f989db377c0742f4, type: 3}
@@ -4729,6 +4735,7 @@ MonoBehaviour:
       - 'I would like 1 croissant... oh, you don''t sell those? How unfortunate... '
       - Perhaps <b>1 brioche($5), 1 baguette($3), another brioche($5), and 1 rye
         loaf($1)</b> for my butler should suffice.
+      dialogos2: []
       price: 23
       personas:
       - {fileID: 201653083, guid: 3770e22209738774db5a13cacb64a854, type: 3}
@@ -4747,6 +4754,7 @@ MonoBehaviour:
       - <B>Curse it!</b> I don't have enough money to pay for it.
       - 'I need <b>3 ryes($6)...</b> but I can only afford 2($4)... would that be
         okay? I need to feed my 3 children. '
+      dialogos2: []
       price: 4
       personas:
       - {fileID: -1297867299, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
@@ -4762,6 +4770,7 @@ MonoBehaviour:
       - Do you have anything edible...? Perhaps something that won't give me indigestion.
       - One baguette should be quite simple for you. How about 1 brioche... no, <b>1
         baguette($3), 1 brioche($5)</b>, and <b>another baguette($3).</b>
+      dialogos2: []
       price: 18
       personas:
       - {fileID: -303746212, guid: cd2a440c5764c314aa41a6ad1d6d6f1d, type: 3}
@@ -4778,6 +4787,7 @@ MonoBehaviour:
       - If I don't get <b>a baguette($3)</b> for today, my parents will cast me out
         of the house... I don't know what else to do; they took all the money I had,
         and they won't accept anything less than 1 rye loaf.
+      dialogos2: []
       price: 5
       personas:
       - {fileID: 370114219, guid: 2dcdbfc8b48b561498718f40649c6ef5, type: 3}
@@ -4794,6 +4804,7 @@ MonoBehaviour:
         but I believe everything is fine.
       - Perhaps if people worked harder, the economy wouldn't affect them. Hehe!
       - The other day, I tried a fantastic baguette. How about giving me <b>2($6)</b>?
+      dialogos2: []
       price: 10
       personas:
       - {fileID: 1684414020, guid: 71d9b5d6ad087ef4982e4182d89bf42c, type: 3}
@@ -4813,6 +4824,7 @@ MonoBehaviour:
       - I heard <b>the queen</b> will be passing through this area; I hope I don't
         have to see her face...
       - I don't have much money. Give me the cheapest bread you have.
+      dialogos2: []
       price: 2
       personas:
       - {fileID: -1297867299, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
@@ -4828,6 +4840,7 @@ MonoBehaviour:
         place, I would stop collecting taxes and make that money support the true
         workers of France."
       - Give me <b>2 baguettes($10)</b>, please.
+      dialogos2: []
       price: 10
       personas:
       - {fileID: 1479967341, guid: 2a17791ac27fa4f4fb526e3bb037fd6f, type: 3}
@@ -4849,6 +4862,7 @@ MonoBehaviour:
         as ever. <b>HOHOHO!</b>
       - Anyway, I've come here to request 3... <b>NO! 4 of your exquisite brioches($20)</b>,
         in honor of the great royalty.
+      dialogos2: []
       price: 32
       personas:
       - {fileID: 781916898, guid: 6f2eecbae5ae9014f8a4ef1cad8070cb, type: 3}
@@ -4877,6 +4891,7 @@ MonoBehaviour:
         as bread to eat a more sophisticated bread like a brioche, <b>which is very
         wise!</b>
       - The baguettes weren't bad at all... give me <b>1 brioche($5) and 2 more baguettes($6).</b>
+      dialogos2: []
       price: 18
       personas:
       - {fileID: 1684414020, guid: 71d9b5d6ad087ef4982e4182d89bf42c, type: 3}
@@ -4892,6 +4907,7 @@ MonoBehaviour:
         fault for being born so poor.
       - Anyway... give me <b>1 baguette($3)</b> for myself and <b>2 rye loaves($2)</b>
         for my butlers.
+      dialogos2: []
       price: 13
       personas:
       - {fileID: 201653083, guid: 3770e22209738774db5a13cacb64a854, type: 3}
@@ -4907,6 +4923,7 @@ MonoBehaviour:
         way.
       - My family and I are starving... I can only afford <b>2 rye loaves($4)</b>,
         but I need <b>3($6)</b>, please...
+      dialogos2: []
       price: 6
       personas:
       - {fileID: 240831082, guid: 1deeb7882c1c6b048ab36626c76d9835, type: 3}
@@ -4922,6 +4939,7 @@ MonoBehaviour:
         to be, cursed wretches.
       - "Quickly, give me <b>2 brioche($10) and 1 baguette($3)\u2026</b> no, without
         brioches, and <b>1 more baguette($3)</b>."
+      dialogos2: []
       price: 10
       personas:
       - {fileID: -303746212, guid: cd2a440c5764c314aa41a6ad1d6d6f1d, type: 3}
@@ -4936,6 +4954,7 @@ MonoBehaviour:
       - The queen is right, if they can't eat bread, why not eat brioche? What a
         great statement from Her Majesty.
       - I'll take <b>1 brioche($5) and 2 rye loaves($2)</b> for my maids.
+      dialogos2: []
       price: 9
       personas:
       - {fileID: -303746212, guid: cd2a440c5764c314aa41a6ad1d6d6f1d, type: 3}
@@ -4958,6 +4977,7 @@ MonoBehaviour:
       - I heard that the medic, <b>Jean Paul Marat</b>, will be around here; it's
         good to know that someone looks out for the working class.
       - Give me <b>3 ryes($6)<$b>.
+      dialogos2: []
       price: 6
       personas:
       - {fileID: -1297867299, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
@@ -4971,6 +4991,7 @@ MonoBehaviour:
     - dialogos:
       - Be careful, I heard one of <b>those activists</b> will be in this area.
       - Give me <b>1 brioche($5) and 1 baguette($3).</b>
+      dialogos2: []
       price: 13
       personas:
       - {fileID: -2006160325, guid: 398062a2e38f31c4f989db377c0742f4, type: 3}
@@ -4991,6 +5012,7 @@ MonoBehaviour:
         brioche"... she has no shame at all to say that.
       - Without further ado, could you provide me with <b>3 Baguettes($15)</b>, if
         it's not too much trouble?
+      dialogos2: []
       price: 15
       personas:
       - {fileID: -123494563, guid: b427a55d3d957fd49b1f70328771b1b5, type: 3}
@@ -5012,6 +5034,7 @@ MonoBehaviour:
       - I heard that the medic, <b>Jean Paul Marat</b>, will be around here; it's
         good to know that someone looks out for the working class.
       - Give me <b>3 ryes($6)<$b>.
+      dialogos2: []
       price: 6
       personas:
       - {fileID: -1297867299, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
@@ -5025,6 +5048,7 @@ MonoBehaviour:
     - dialogos:
       - Be careful, I heard one of <b>those activists</b> will be in this area.
       - Give me <b>1 brioche($5) and 1 baguette($3).</b>
+      dialogos2: []
       price: 8
       personas:
       - {fileID: -2006160325, guid: 398062a2e38f31c4f989db377c0742f4, type: 3}
@@ -5045,6 +5069,7 @@ MonoBehaviour:
         brioche"... she has no shame at all to say that.
       - Without further ado, could you provide me with <b>3 Baguettes($15)</b>, if
         it's not too much trouble?
+      dialogos2: []
       price: 15
       personas:
       - {fileID: -123494563, guid: b427a55d3d957fd49b1f70328771b1b5, type: 3}

@@ -163,20 +163,24 @@ public class ShopManager : MonoBehaviour
     public void InteraccionPersona()
     {
         textPanel.SetActive(true);
-        if (textaux < actual.dialogos.Count)
+        if (textaux < actual.dialogos2.Count)
         {
             escribir = true;
-            StartCoroutine(MostrarTextoLentamente(actual.dialogos));
+            if (actual.dialogos2[textaux].GetReaccion() != null)
+            {
+                basePersona.sprite = actual.dialogos2[textaux].GetReaccion();
+            }
+            StartCoroutine(MostrarTextoLentamente(actual.dialogos2[textaux].GetDialogo()));
         }
         
         textaux++;
     }
     
-    private IEnumerator MostrarTextoLentamente(List<string> dialogos)
+    private IEnumerator MostrarTextoLentamente(string dialogos)
     {
         text.text = "";
         botones[1].interactable = false;
-        foreach (char letra in dialogos[textaux])
+        foreach (char letra in dialogos)
         {
             if(escribir)
 			{

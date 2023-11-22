@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class InteractionSystem
 {
     public List<string> dialogos;
+    public List<Dialogo> dialogos2;
     public int price;
     public List<Sprite> personas;
     public List<int> panesAceptados;
