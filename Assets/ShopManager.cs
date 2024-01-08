@@ -170,7 +170,7 @@ public class ShopManager : MonoBehaviour
             {
                 basePersona.sprite = actual.dialogos2[textaux].GetReaccion();
             }
-            StartCoroutine(MostrarTextoLentamente(actual.dialogos2[textaux].GetDialogo()));
+            StartCoroutine(MostrarTextoLentamente(actual.dialogos2[textaux].GetDialogo()));  
         }
         
         textaux++;
