@@ -55,6 +55,7 @@ public class ShopManager : MonoBehaviour
     private int angleArrow = 0;
     private bool escribir = false;
     private int preciofinal;
+    private bool omittingText = false;
     private void Start()
     {
         dinero.text = ""+precioaux;
@@ -184,8 +185,19 @@ public class ShopManager : MonoBehaviour
         {
             if(escribir)
 			{
+                if(letra.ToString() == "<")
+				{
+                    omittingText = true;
+                }
+                else if(letra.ToString() == ">")
+				{
+                    omittingText = false;
+                    yield return null;
+                }
+
                 text.text += letra; 
-                yield return new WaitForSeconds(0.015f);
+                if (omittingText) yield return null;
+                else yield return new WaitForSeconds(0.015f);
 			}
         }
         botones[1].interactable = true;

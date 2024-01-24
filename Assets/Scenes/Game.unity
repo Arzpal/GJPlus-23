@@ -402,10 +402,10 @@ RectTransform:
   m_Father: {fileID: 1664774466}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.14, y: 0.37830234}
-  m_AnchorMax: {x: 0.5, y: 0.64517283}
-  m_AnchoredPosition: {x: -0.7997055, y: 0.58309937}
-  m_SizeDelta: {x: 134.3387, y: 139.5989}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -30.523, y: 3.3128}
+  m_SizeDelta: {x: 202.67, y: 198.0029}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &101582063
 GameObject:
@@ -793,10 +793,10 @@ RectTransform:
   m_Father: {fileID: 1664774466}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.14, y: 0.10534884}
-  m_AnchorMax: {x: 0.48100004, y: 0.33900002}
-  m_AnchoredPosition: {x: 0.6840973, y: -1.1076965}
-  m_SizeDelta: {x: 133.2217, y: 133.5098}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -30.523, y: -63.6241}
+  m_SizeDelta: {x: 202.67, y: 190.4642}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &363135523
 GameObject:
@@ -3466,7 +3466,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1099483705}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3476,7 +3476,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 205, y: -411}
+  m_AnchoredPosition: {x: 207.66101, y: -403.45093}
   m_SizeDelta: {x: 161.2955, y: 66.2193}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1099483707
@@ -4518,7 +4518,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391719723}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4528,7 +4528,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 205, y: -39}
+  m_AnchoredPosition: {x: 207.66101, y: -31.451012}
   m_SizeDelta: {x: 161.2955, y: 66.2193}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1391719725
@@ -4670,28 +4670,38 @@ MonoBehaviour:
   obispotext: {fileID: 959176976}
   dias:
   - dia:
-    - dialogos:
-      - Certainly, I, the bishop of this town, do hereby declare your bakery officially
-        open.
-      - <b>The loaves are on the right</b>, and 'tis but a matter of taking them
-        from there when a customer request.
-      - A lot of folks live 'round these parts, from the <b>bourgeois</b> to the
-        <b>working class</b>. You can decide who to cater to, and your business will
-        go in the direction you want based on your sales.
-      - Nonetheless, as you are aware, you must pay a certain daily tax as an offering
-        to the church.
-      - Do we make any significant impact on your business? Likely not, but your
-        cooperation shall make an impact on our Lord and la grande France.
-      - You may collect this tax from your customers as well, with the option below.
-      - HOWEVER, only from the laborers
-      - The nobility has no obligation to pay the tax. (And neither do I.)
-      - 'And it would be best for you to have the 20 francs ready by the end of the
-        day. Else, I shall make this business fall in the blink of an eye. '
-      - Now let's practice, Give me <b>a rye loave($1), remember i don't pay taxes</b>
+    - dialogos: []
       dialogos2:
       - dialogo: Certainly, I, the bishop of this town, do hereby declare your bakery
           officially open.
-        reaccion: {fileID: 1684414020, guid: 71d9b5d6ad087ef4982e4182d89bf42c, type: 3}
+        reaccion: {fileID: -1501713343, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
+      - dialogo: <b>The loaves are on the right</b>, and 'tis but a matter of taking
+          them from there when a customer request.
+        reaccion: {fileID: -1501713343, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
+      - dialogo: A lot of folks live 'round these parts, from the <b>bourgeois</b>
+          to the <b>working class</b>. You can decide who to cater to, and your business
+          will go in the direction you want based on your sales.
+        reaccion: {fileID: -1501713343, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
+      - dialogo: Nonetheless, as you are aware, you must pay a certain daily tax
+          as an offering to the church.
+        reaccion: {fileID: -1501713343, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
+      - dialogo: Do we make any significant impact on your business? Likely not,
+          but your cooperation shall make an impact on our Lord and la grande France.
+        reaccion: {fileID: 523533682, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
+      - dialogo: You may collect this tax from your customers as well, with the option
+          below.
+        reaccion: {fileID: -1501713343, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
+      - dialogo: HOWEVER, only from the laborers
+        reaccion: {fileID: -846073766, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
+      - dialogo: The nobility has no obligation to pay the tax. (And neither do I.)
+        reaccion: {fileID: 523533682, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
+      - dialogo: 'And it would be best for you to have the 20 francs ready by the
+          end of the day. Else, I shall make this business fall in the blink of an
+          eye. '
+        reaccion: {fileID: -846073766, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
+      - dialogo: Now let's practice, Give me <b>a rye loave($1), remember i don't
+          pay taxes</b>
+        reaccion: {fileID: -1501713343, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
       price: 2
       personas:
       - {fileID: -1501713343, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
@@ -4702,11 +4712,13 @@ MonoBehaviour:
       badEnding: Ugh.. Whatever! Be prepared for tomorrow or I'll close this down!
       nobleza: 1
       characterRelevance: 0
-    - dialogos:
-      - Young brother... the economy is in <b>the worst</b> of conditions.
-      - I would offer to this poor man, stripped of his home and bankrupt, some bread...
-        2 francs is what I have for <b>2 rye loaves ($4)</b>.
-      dialogos2: []
+    - dialogos: []
+      dialogos2:
+      - dialogo: Young brother... the economy is in <b>the worst</b> of conditions.
+        reaccion: {fileID: 240831082, guid: 1deeb7882c1c6b048ab36626c76d9835, type: 3}
+      - dialogo: I would offer to this poor man, stripped of his home and bankrupt,
+          some bread... 2 francs is what I have for <b>2 rye loaves ($4)</b>.
+        reaccion: {fileID: 240831082, guid: 1deeb7882c1c6b048ab36626c76d9835, type: 3}
       price: 2
       personas:
       - {fileID: 240831082, guid: 1deeb7882c1c6b048ab36626c76d9835, type: 3}
@@ -4717,10 +4729,13 @@ MonoBehaviour:
       badEnding: You will pay with your life...
       nobleza: 0
       characterRelevance: 0
-    - dialogos:
-      - 'Today, I feel modest... it''s <b>the second time</b> I''ve felt this way. '
-      - How about <b>1 brioche($5) and 2 baguettes($6).</b>
-      dialogos2: []
+    - dialogos: []
+      dialogos2:
+      - dialogo: 'Today, I feel modest... it''s <b>the second time</b> I''ve felt
+          this way. '
+        reaccion: {fileID: -2006160325, guid: 398062a2e38f31c4f989db377c0742f4, type: 3}
+      - dialogo: How about <b>1 brioche($5) and 2 baguettes($6).</b>
+        reaccion: {fileID: 1943860426, guid: 398062a2e38f31c4f989db377c0742f4, type: 3}
       price: 18
       personas:
       - {fileID: -2006160325, guid: 398062a2e38f31c4f989db377c0742f4, type: 3}
@@ -4731,11 +4746,15 @@ MonoBehaviour:
       badEnding: Terrible service!!
       nobleza: 1
       characterRelevance: 0
-    - dialogos:
-      - 'I would like 1 croissant... oh, you don''t sell those? How unfortunate... '
-      - Perhaps <b>1 brioche($5), 1 baguette($3), another brioche($5), and 1 rye
-        loaf($1)</b> for my butler should suffice.
-      dialogos2: []
+    - dialogos: []
+      dialogos2:
+      - dialogo: 'I would like 1 croissant... '
+        reaccion: {fileID: 201653083, guid: 3770e22209738774db5a13cacb64a854, type: 3}
+      - dialogo: 'Oh, you don''t sell those? How unfortunate... '
+        reaccion: {fileID: 491668741, guid: 3770e22209738774db5a13cacb64a854, type: 3}
+      - dialogo: Perhaps <b>1 brioche($5), 1 baguette($3), another brioche($5), and
+          1 rye loaf($1)</b> for my butler should suffice.
+        reaccion: {fileID: 201653083, guid: 3770e22209738774db5a13cacb64a854, type: 3}
       price: 23
       personas:
       - {fileID: 201653083, guid: 3770e22209738774db5a13cacb64a854, type: 3}
@@ -4749,12 +4768,15 @@ MonoBehaviour:
     textosDiezmo: []
     quantity: 050000000500000005000000
   - dia:
-    - dialogos:
-      - Good morning... give me 5 ry-
-      - <B>Curse it!</b> I don't have enough money to pay for it.
-      - 'I need <b>3 ryes($6)...</b> but I can only afford 2($4)... would that be
-        okay? I need to feed my 3 children. '
-      dialogos2: []
+    - dialogos: []
+      dialogos2:
+      - dialogo: Good morning... give me 5 ry-
+        reaccion: {fileID: 641671573, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
+      - dialogo: <B>Curse it!</b> I don't have enough money to pay for it.
+        reaccion: {fileID: 764638196, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
+      - dialogo: 'I need <b>3 ryes($6)...</b> but I can only afford 2($4)... would
+          that be okay? I need to feed my 3 children. '
+        reaccion: {fileID: -1297867299, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
       price: 4
       personas:
       - {fileID: -1297867299, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
@@ -4765,12 +4787,16 @@ MonoBehaviour:
       badEnding: Why are there such cruel people?... I'll look elsewhere...
       nobleza: 0
       characterRelevance: 0
-    - dialogos:
-      - Ugh, I have no choice but to buy from a place like this.
-      - Do you have anything edible...? Perhaps something that won't give me indigestion.
-      - One baguette should be quite simple for you. How about 1 brioche... no, <b>1
-        baguette($3), 1 brioche($5)</b>, and <b>another baguette($3).</b>
-      dialogos2: []
+    - dialogos: []
+      dialogos2:
+      - dialogo: Ugh, I have no choice but to buy from a place like this.
+        reaccion: {fileID: -303746212, guid: cd2a440c5764c314aa41a6ad1d6d6f1d, type: 3}
+      - dialogo: Do you have anything edible...? Perhaps something that won't give
+          me indigestion.
+        reaccion: {fileID: -1753127701, guid: cd2a440c5764c314aa41a6ad1d6d6f1d, type: 3}
+      - dialogo: One baguette should be quite simple for you. How about 1 brioche...
+          no, <b>1 baguette($3), 1 brioche($5)</b>, and <b>another baguette($3).</b>
+        reaccion: {fileID: -303746212, guid: cd2a440c5764c314aa41a6ad1d6d6f1d, type: 3}
       price: 18
       personas:
       - {fileID: -303746212, guid: cd2a440c5764c314aa41a6ad1d6d6f1d, type: 3}
@@ -4781,13 +4807,15 @@ MonoBehaviour:
       badEnding: What do you take me for...? Don't you know I can ruin this business?
       nobleza: 1
       characterRelevance: 0
-    - dialogos:
-      - Baker... I implore you from the depths of my heart to have compassion for
-        me.
-      - If I don't get <b>a baguette($3)</b> for today, my parents will cast me out
-        of the house... I don't know what else to do; they took all the money I had,
-        and they won't accept anything less than 1 rye loaf.
-      dialogos2: []
+    - dialogos: []
+      dialogos2:
+      - dialogo: Baker... I implore you from the depths of my heart to have compassion
+          for me.
+        reaccion: {fileID: 1009908819, guid: 2dcdbfc8b48b561498718f40649c6ef5, type: 3}
+      - dialogo: If I don't get <b>a baguette($3)</b> for today, my parents will
+          cast me out of the house... I don't know what else to do; they took all
+          the money I had, and they won't accept anything less than 1 rye loaf.
+        reaccion: {fileID: 370114219, guid: 2dcdbfc8b48b561498718f40649c6ef5, type: 3}
       price: 5
       personas:
       - {fileID: 370114219, guid: 2dcdbfc8b48b561498718f40649c6ef5, type: 3}
@@ -4798,13 +4826,19 @@ MonoBehaviour:
       badEnding: May God have mercy on me.
       nobleza: 0
       characterRelevance: 0
-    - dialogos:
-      - Is it a great day to shop here, don't you think?
-      - How's the business? Many commoners say the economy is in <b>the worst situation</b>,
-        but I believe everything is fine.
-      - Perhaps if people worked harder, the economy wouldn't affect them. Hehe!
-      - The other day, I tried a fantastic baguette. How about giving me <b>2($6)</b>?
-      dialogos2: []
+    - dialogos: []
+      dialogos2:
+      - dialogo: Is it a great day to shop here, don't you think?
+        reaccion: {fileID: -1250204432, guid: 71d9b5d6ad087ef4982e4182d89bf42c, type: 3}
+      - dialogo: How's the business? Many commoners say the economy is in <b>the
+          worst situation</b>, but I believe everything is fine.
+        reaccion: {fileID: 1684414020, guid: 71d9b5d6ad087ef4982e4182d89bf42c, type: 3}
+      - dialogo: Perhaps if people worked harder, the economy wouldn't affect them.
+          Hehe!
+        reaccion: {fileID: -1250204432, guid: 71d9b5d6ad087ef4982e4182d89bf42c, type: 3}
+      - dialogo: The other day, I tried a fantastic baguette. How about giving me
+          <b>2($6)</b>?
+        reaccion: {fileID: 1684414020, guid: 71d9b5d6ad087ef4982e4182d89bf42c, type: 3}
       price: 10
       personas:
       - {fileID: 1684414020, guid: 71d9b5d6ad087ef4982e4182d89bf42c, type: 3}
@@ -4820,11 +4854,13 @@ MonoBehaviour:
     - I see that your business is afloat; I shall pray for it to stay that way.
     quantity: 030000000300000003000000
   - dia:
-    - dialogos:
-      - I heard <b>the queen</b> will be passing through this area; I hope I don't
-        have to see her face...
-      - I don't have much money. Give me the cheapest bread you have.
-      dialogos2: []
+    - dialogos: []
+      dialogos2:
+      - dialogo: I heard <b>the queen</b> will be passing through this area; I hope
+          I don't have to see her face...
+        reaccion: {fileID: 764638196, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
+      - dialogo: I don't have much money. Give me the cheapest bread you have.
+        reaccion: {fileID: -1297867299, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
       price: 2
       personas:
       - {fileID: -1297867299, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
@@ -4835,12 +4871,15 @@ MonoBehaviour:
       badEnding: All the bourgeois are the same!
       nobleza: 0
       characterRelevance: 0
-    - dialogos:
-      - "That <b>darn queen will arrive to this place\u2026</b> if I were in her
-        place, I would stop collecting taxes and make that money support the true
-        workers of France."
-      - Give me <b>2 baguettes($10)</b>, please.
-      dialogos2: []
+    - dialogos: []
+      dialogos2:
+      - dialogo: "That <b>darn queen will arrive to this place\u2026"
+        reaccion: {fileID: 1479967341, guid: 2a17791ac27fa4f4fb526e3bb037fd6f, type: 3}
+      - dialogo: </b> if I were in her place, I would stop collecting taxes and make
+          that money support the true workers of France.
+        reaccion: {fileID: -456857704, guid: 2a17791ac27fa4f4fb526e3bb037fd6f, type: 3}
+      - dialogo: Give me <b>2 baguettes($10)</b>, please.
+        reaccion: {fileID: 1479967341, guid: 2a17791ac27fa4f4fb526e3bb037fd6f, type: 3}
       price: 10
       personas:
       - {fileID: 1479967341, guid: 2a17791ac27fa4f4fb526e3bb037fd6f, type: 3}
@@ -4851,18 +4890,25 @@ MonoBehaviour:
       badEnding: Why are there such cruel people?... I'll look elsewhere...
       nobleza: 0
       characterRelevance: 0
-    - dialogos:
-      - This whole place feels so... filled with <b>humility...</b> and <b>filth...</b>
-      - Oh, I hadn't noticed amidst all this mess, I suppose I'm rather understated,
-        but I shall introduce myself all the same.
-      - I am the grand queen of France, le magnifique, <b>Marie Antoinette.</b>
-      - Not long ago, many of these low-class vermin approached <b>MY</b> palace
-        to complain about the price of bread...
-      - I don't understand what they're whining about, the bread is just as delicious
-        as ever. <b>HOHOHO!</b>
-      - Anyway, I've come here to request 3... <b>NO! 4 of your exquisite brioches($20)</b>,
-        in honor of the great royalty.
-      dialogos2: []
+    - dialogos: []
+      dialogos2:
+      - dialogo: This whole place feels so... filled with <b>humility...</b> and
+          <b>filth...</b>
+        reaccion: {fileID: 781916898, guid: 6f2eecbae5ae9014f8a4ef1cad8070cb, type: 3}
+      - dialogo: Oh, I hadn't noticed amidst all this mess, I suppose I'm rather
+          understated, but I shall introduce myself all the same.
+        reaccion: {fileID: 781916898, guid: 6f2eecbae5ae9014f8a4ef1cad8070cb, type: 3}
+      - dialogo: I am the grand queen of France, le magnifique, <b>Marie Antoinette.</b>
+        reaccion: {fileID: 1142902555, guid: 6f2eecbae5ae9014f8a4ef1cad8070cb, type: 3}
+      - dialogo: Not long ago, many of these low-class vermin approached <b>MY</b>
+          palace to complain about the price of bread...
+        reaccion: {fileID: 718072630, guid: 6f2eecbae5ae9014f8a4ef1cad8070cb, type: 3}
+      - dialogo: I don't understand what they're whining about, the bread is just
+          as delicious as ever. <b>HOHOHO!</b>
+        reaccion: {fileID: 1142902555, guid: 6f2eecbae5ae9014f8a4ef1cad8070cb, type: 3}
+      - dialogo: Anyway, I've come here to request 3... <b>NO! 4 of your exquisite
+          brioches($20)</b>, in honor of the great royalty.
+        reaccion: {fileID: 781916898, guid: 6f2eecbae5ae9014f8a4ef1cad8070cb, type: 3}
       price: 32
       personas:
       - {fileID: 781916898, guid: 6f2eecbae5ae9014f8a4ef1cad8070cb, type: 3}
@@ -5367,7 +5413,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 195, y: -19}
+  m_AnchoredPosition: {x: 199.26067, y: -19.684288}
   m_SizeDelta: {x: 157.5564, y: 62.3143}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1624766035
@@ -5502,10 +5548,10 @@ RectTransform:
   m_Father: {fileID: 1664774466}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.14, y: 0.70100003}
-  m_AnchorMax: {x: 0.48100004, y: 0.94500005}
-  m_AnchoredPosition: {x: 0.7431984, y: -0.06590271}
-  m_SizeDelta: {x: 139.9432, y: 130.5939}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -29.999311, y: 67.10532}
+  m_SizeDelta: {x: 199.1927, y: 199.5113}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1663252213
 GameObject:
@@ -6300,7 +6346,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799035691}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6310,7 +6356,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 205, y: 10}
+  m_AnchoredPosition: {x: 207.66101, y: 17.548992}
   m_SizeDelta: {x: 161.2955, y: 66.2193}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1799035693
@@ -6549,7 +6595,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1880239561}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6559,7 +6605,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 205, y: -194}
+  m_AnchoredPosition: {x: 207.66101, y: -186.45103}
   m_SizeDelta: {x: 161.2955, y: 66.2193}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1880239563
@@ -7582,7 +7628,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 197, y: -24}
+  m_AnchoredPosition: {x: 201.20349, y: -14.757435}
   m_SizeDelta: {x: 135.888, y: 64.4252}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2094356272
