@@ -4,7 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class Dialogo
 {
-    public string dialogo;
+    [TextArea]public string dialogo;
     public Sprite reaccion;
 
     public string GetDialogo()

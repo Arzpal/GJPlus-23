@@ -195,9 +195,11 @@ public class ShopManager : MonoBehaviour
                     yield return null;
                 }
 
-                text.text += letra; 
-                if (omittingText) yield return null;
-                else yield return new WaitForSeconds(0.015f);
+                text.text += letra;
+                if (!omittingText)
+                {
+                    yield return new WaitForSeconds(0.015f);
+                }
 			}
         }
         botones[1].interactable = true;
