@@ -31,6 +31,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private Sprite close;
     [SerializeField] private Sprite open;
     [SerializeField] private Sprite obreroFinal;
+    [SerializeField] private Sprite obreroFinalEnojao;
     [SerializeField] private bool final = false;
     [SerializeField] private int moral = 0;
     [SerializeField] private BreadInventory bI;
@@ -387,6 +388,7 @@ public class ShopManager : MonoBehaviour
     //cuando se termina el dia se hace un fade que te muestra que dia es y pasa al siguiente dia 
     private IEnumerator RealizarFade(string text, int duracionFade, bool final2 = false)
     {
+        textPanel.SetActive(false);
         panel.alpha = 0;
         
         float t = 0;
@@ -402,22 +404,36 @@ public class ShopManager : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         if(final && final2)
 		{
-            yield return new WaitForSeconds(10.0f);
+            if (moral >= 0)
+            {
+                Debug.LogWarning("GANASTE");
+                yield return new WaitForSeconds(5.0f);
+
+                obispotext.GetComponent<TMP_Text>().text = "France will now be a free country.";
+            }
+            else
+            {
+                Debug.LogWarning("PERDISTE");
+                yield return new WaitForSeconds(5.0f);
+                obispotext.GetComponent<TMP_Text>().text = "Your fate was not so kind; your head was displayed ourside your shop as a symbol of revolution";
+            }
+            yield return new WaitForSeconds(12.0f);
             SceneManager.LoadScene("Game");
 		}
-        // como se empieza el dia, se cobra el diezmo que es una actividad extra
-        StartCoroutine(CobrarDiezmo(precioDiezmo));
-        
-        obispotext.gameObject.SetActive(false);
-
-        
-        t = 0;
-        while (t < 1)
+        else
         {
-            t += Time.deltaTime / duracionFade;
-            panel.alpha = Mathf.Lerp(1, 0, t);
-            yield return null;
+            // como se empieza el dia, se cobra el diezmo que es una actividad extra
+            StartCoroutine(CobrarDiezmo(precioDiezmo));
+            obispotext.gameObject.SetActive(false);
+            t = 0;
+            while (t < 1)
+            {
+                t += Time.deltaTime / duracionFade;
+                panel.alpha = Mathf.Lerp(1, 0, t);
+                yield return null;
+            }
         }
+        
         
     }
 
@@ -452,6 +468,7 @@ public class ShopManager : MonoBehaviour
 			{
                 //nobles
                 dias[diasaux].textosDiezmo.Add("Baker... give me 3 ba-");
+                diezmo.sprite = obreroFinalEnojao;
                 dias[diasaux].textosDiezmo.Add("Wait a moment... you are a bourgeois...");
                 dias[diasaux].textosDiezmo.Add("We, the working class, with great effort, managed to take the palace of Versailles where your dear customers are.");
                 dias[diasaux].textosDiezmo.Add("At last, we will free ourselves from those human scum and from you!");
@@ -486,13 +503,13 @@ public class ShopManager : MonoBehaviour
             if(moral >= 0)
 			{
                 Debug.LogWarning("GANASTE");
-                StartCoroutine(RealizarFade("You decided to join the march with that customer, realizing the turmoil caused by the queen's comment and the entire social crisis.", 5, true));
+                StartCoroutine(RealizarFade("You decided to join the march with that customer, realizing the turmoil caused by the queen's comment and the entire social crisis.", 3, true));
 
             }
 			else
             {
                 Debug.LogWarning("PERDISTE");
-                StartCoroutine(RealizarFade("The worker and his companions attacked your business and you for having served the bourgeoisie.", 5, true));
+                StartCoroutine(RealizarFade("The worker and his companions attacked your business and you for having served the bourgeoisie.", 3, true));
             }
         }
         if(preciofinal <= 0)
@@ -506,7 +523,7 @@ public class ShopManager : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         textPanel.SetActive(false);
-        if (preciofinal <= 0)
+        if (preciofinal <= 0 && !final)
         {
             diezmo.sprite = diezmoEmocions[2 + (!final ? 0 : 3)];
             StartCoroutine(RealizarFade("Perdiste", 5, true));
