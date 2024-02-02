@@ -5033,6 +5033,23 @@ MonoBehaviour:
   - dia:
     - dialogos: []
       dialogos2:
+      - dialogo: I heard that the medic, <b>Jean Paul Marat</b>, will be around here;
+          it's good to know that someone looks out for the working class.
+        reaccion: {fileID: 641671573, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
+      - dialogo: Give me <b>3 ryes($6)</b>.
+        reaccion: {fileID: -1297867299, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
+      price: 6
+      personas:
+      - {fileID: -1297867299, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
+      - {fileID: 641671573, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
+      - {fileID: 764638196, guid: 2a289669d3bbdc341a08dd021feb31ba, type: 3}
+      panesAceptados: 020000000200000002000000
+      goodEnding: God bless you.
+      badEnding: All the bourgeois are the same!
+      nobleza: 0
+      characterRelevance: 0
+    - dialogos: []
+      dialogos2:
       - dialogo: Be careful, I heard one of <b>those activists</b> will be in this
           area.
         reaccion: {fileID: 2114333845, guid: 398062a2e38f31c4f989db377c0742f4, type: 3}
@@ -5048,10 +5065,38 @@ MonoBehaviour:
       badEnding: Terrible service!!
       nobleza: 1
       characterRelevance: 0
+    - dialogos: []
+      dialogos2:
+      - dialogo: France is in a terrible situation, and I can do nothing about it...
+        reaccion: {fileID: -1778261818, guid: b427a55d3d957fd49b1f70328771b1b5, type: 3}
+      - dialogo: Oh, pardon the interruption; I'm just a humble medic here for a
+          bit of bread from this modest establishment.
+        reaccion: {fileID: -123494563, guid: b427a55d3d957fd49b1f70328771b1b5, type: 3}
+      - dialogo: "However... I understand that you and I share the same feelings,
+          don't we? That same sense of <b>injustice from this sinister bourgeoisie\u2026</b>"
+        reaccion: {fileID: 2116625886, guid: b427a55d3d957fd49b1f70328771b1b5, type: 3}
+      - dialogo: And on top of it all, our Queen won't do anything about it, "Let
+          them eat brioche"... she has no shame at all to say that.
+        reaccion: {fileID: -1778261818, guid: b427a55d3d957fd49b1f70328771b1b5, type: 3}
+      - dialogo: Without further ado, could you provide me with <b>3 Baguettes($15)</b>,
+          if it's not too much trouble?
+        reaccion: {fileID: -123494563, guid: b427a55d3d957fd49b1f70328771b1b5, type: 3}
+      price: 15
+      personas:
+      - {fileID: -123494563, guid: b427a55d3d957fd49b1f70328771b1b5, type: 3}
+      - {fileID: 2116625886, guid: b427a55d3d957fd49b1f70328771b1b5, type: 3}
+      - {fileID: -1778261818, guid: b427a55d3d957fd49b1f70328771b1b5, type: 3}
+      panesAceptados: 010000000100000001000000
+      goodEnding: Thank you very much, my friend! This fresh and delicious bread
+        has inspired me to write my ideas and inspirations for all of France!
+      badEnding: I see now. I understand why the bourgeoisie treats us like mere
+        rats.
+      nobleza: 0
+      characterRelevance: 1
     textosDiezmo:
     - I have returned to your establishment and...
     - I see that your business is afloat; I shall pray for it to stay that way.
-    quantity: 020000000300000003000000
+    quantity: 030000000300000003000000
   - dia: []
     textosDiezmo:
     - 
