@@ -51,7 +51,7 @@ public class ShopManager : MonoBehaviour
     private int precioaux;
     private int textaux = 0;
     private int personasaux = 0;
-    private int diasaux = 0;
+    [SerializeField] int diasaux = 0;
     private int angleArrow = 0;
     private bool escribir = false;
     private int preciofinal;
@@ -402,6 +402,7 @@ public class ShopManager : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         if(final && final2)
 		{
+            yield return new WaitForSeconds(10.0f);
             SceneManager.LoadScene("Game");
 		}
         // como se empieza el dia, se cobra el diezmo que es una actividad extra
