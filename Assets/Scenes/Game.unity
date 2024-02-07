@@ -1121,7 +1121,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.93826854, y: 1}
-  m_AnchoredPosition: {x: -6.5, y: 9.754196}
+  m_AnchoredPosition: {x: -6.5, y: 9.754211}
   m_SizeDelta: {x: 15.902405, y: 31.960297}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &507001801
@@ -1704,7 +1704,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 15.699951, y: -12.960083}
+  m_AnchoredPosition: {x: 15.700195, y: -12.959961}
   m_SizeDelta: {x: 34, y: 31}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &654109777
@@ -1858,7 +1858,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.00012207031}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 513.7549, y: 113.3333}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &693004781
@@ -2901,7 +2901,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.023254588, y: 0.24786943}
   m_AnchorMax: {x: 0.22437271, y: 0.88134784}
-  m_AnchoredPosition: {x: -0.7027588, y: -0.8514023}
+  m_AnchoredPosition: {x: -0.7027588, y: -0.85139465}
   m_SizeDelta: {x: 0.90530014, y: 0.76589966}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &984516224
@@ -3988,7 +3988,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.3327718, y: 0.5}
   m_AnchorMax: {x: 0.8871813, y: 1}
-  m_AnchoredPosition: {x: 1.3999939, y: 0.475502}
+  m_AnchoredPosition: {x: 1.3999939, y: 0.47549438}
   m_SizeDelta: {x: -1.5038986, y: 17.2594}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1329842978
@@ -4679,14 +4679,18 @@ MonoBehaviour:
           them from there when a customer request.
         reaccion: {fileID: -1501713343, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
       - dialogo: A lot of folks live 'round these parts, from the <b>bourgeois</b>
-          to the <b>working class</b>. You can decide who to cater to, and your business
-          will go in the direction you want based on your sales.
+          to the <b>working class</b>.
+        reaccion: {fileID: -1501713343, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
+      - dialogo: You can decide who to cater to, and your business will go in the
+          direction you want based on your sales.
         reaccion: {fileID: -1501713343, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
       - dialogo: Nonetheless, as you are aware, you must pay a certain daily tax
           as an offering to the church.
         reaccion: {fileID: -1501713343, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
-      - dialogo: Do we make any significant impact on your business? Likely not,
-          but your cooperation shall make an impact on our Lord and la grande France.
+      - dialogo: Do we make any significant impact on your business?
+        reaccion: {fileID: -1501713343, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
+      - dialogo: Likely not, but your cooperation shall make an impact on our Lord
+          and la grande France.
         reaccion: {fileID: 523533682, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
       - dialogo: You may collect this tax from your customers as well, with the option
           below.
@@ -4695,9 +4699,10 @@ MonoBehaviour:
         reaccion: {fileID: -846073766, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
       - dialogo: The nobility has no obligation to pay the tax. (And neither do I.)
         reaccion: {fileID: 523533682, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
-      - dialogo: 'And it would be best for you to have the 20 francs ready by the
-          end of the day. Else, I shall make this business fall in the blink of an
-          eye. '
+      - dialogo: And it would be best for you to have the 20 francs ready by the
+          end of the day.
+        reaccion: {fileID: -1501713343, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
+      - dialogo: Else, I shall make this business fall in the blink of an eye.
         reaccion: {fileID: -846073766, guid: 0056b3a21e4c8fd4ab90aaf6a4113f8d, type: 3}
       - dialogo: Now let's practice, Give me <b>a rye loave($1), remember i don't
           pay taxes</b>
@@ -4714,10 +4719,15 @@ MonoBehaviour:
       characterRelevance: 0
     - dialogos: []
       dialogos2:
-      - dialogo: Young brother... the economy is in <b>the worst</b> of conditions.
+      - dialogo: A pleasure, good man.
         reaccion: {fileID: 240831082, guid: 1deeb7882c1c6b048ab36626c76d9835, type: 3}
-      - dialogo: I would offer to this poor man, stripped of his home and bankrupt,
-          some bread... 2 francs is what I have for <b>2 rye loaves ($4)</b>.
+      - dialogo: The situation <b>worsens</b> with each passing day. Indeed? I imagine
+          it is the same for you as well..
+        reaccion: {fileID: 240831082, guid: 1deeb7882c1c6b048ab36626c76d9835, type: 3}
+      - dialogo: It has cost me much sweat, but I have managed to obtain money for
+          some food.
+        reaccion: {fileID: 240831082, guid: 1deeb7882c1c6b048ab36626c76d9835, type: 3}
+      - dialogo: 2 francs is what I have for <b>2 rye loaves ($4)</b>.
         reaccion: {fileID: 240831082, guid: 1deeb7882c1c6b048ab36626c76d9835, type: 3}
       price: 2
       personas:
@@ -4731,28 +4741,39 @@ MonoBehaviour:
       characterRelevance: 0
     - dialogos: []
       dialogos2:
-      - dialogo: 'Today, I feel modest... it''s <b>the second time</b> I''ve felt
-          this way. '
-        reaccion: {fileID: -2006160325, guid: 398062a2e38f31c4f989db377c0742f4, type: 3}
-      - dialogo: How about <b>1 brioche($5) and 2 baguettes($6).</b>
+      - dialogo: Good morning, young baker.
         reaccion: {fileID: 1943860426, guid: 398062a2e38f31c4f989db377c0742f4, type: 3}
+      - dialogo: The bakery I always rely on is closed. I think they closed it for
+          <b>not paying taxes...</b> What a pity for them!
+        reaccion: {fileID: -2006160325, guid: 398062a2e38f31c4f989db377c0742f4, type: 3}
+      - dialogo: It is my first time here, so treat me well and perhaps my father,
+          a very successful man, may do something for you. Do you understand what
+          I mean?
+        reaccion: {fileID: 1943860426, guid: 398062a2e38f31c4f989db377c0742f4, type: 3}
+      - dialogo: Give me <b>1 brioche($5) and 2 baguettes($6).</b>
+        reaccion: {fileID: -2006160325, guid: 398062a2e38f31c4f989db377c0742f4, type: 3}
       price: 18
       personas:
       - {fileID: -2006160325, guid: 398062a2e38f31c4f989db377c0742f4, type: 3}
       - {fileID: 1943860426, guid: 398062a2e38f31c4f989db377c0742f4, type: 3}
       - {fileID: 2114333845, guid: 398062a2e38f31c4f989db377c0742f4, type: 3}
       panesAceptados: 000000000100000001000000
-      goodEnding: As I expected.
+      goodEnding: You know what is good for you. Have a good day.
       badEnding: Terrible service!!
       nobleza: 1
       characterRelevance: 0
     - dialogos: []
       dialogos2:
-      - dialogo: 'I would like 1 croissant... '
+      - dialogo: Good morning.
         reaccion: {fileID: 201653083, guid: 3770e22209738774db5a13cacb64a854, type: 3}
-      - dialogo: 'Oh, you don''t sell those? How unfortunate... '
+      - dialogo: "\rI was walking through the town when I saw your bakery. Truly,
+          it surprised me. I have seen better, but it is not bad compared to the
+          others nearby. There are some that are truly unpleasant..."
+        reaccion: {fileID: 201653083, guid: 3770e22209738774db5a13cacb64a854, type: 3}
+      - dialogo: I remind you that you shall not charge me taxes... in case you'd
+          forgot.
         reaccion: {fileID: 491668741, guid: 3770e22209738774db5a13cacb64a854, type: 3}
-      - dialogo: Perhaps <b>1 brioche($5), 1 baguette($3), another brioche($5), and
+      - dialogo: Give me <b>1 brioche($5), 1 baguette($3), another brioche($5), and
           1 rye loaf($1)</b> for my butler should suffice.
         reaccion: {fileID: 201653083, guid: 3770e22209738774db5a13cacb64a854, type: 3}
       price: 23
@@ -4761,8 +4782,8 @@ MonoBehaviour:
       - {fileID: 461863210, guid: 3770e22209738774db5a13cacb64a854, type: 3}
       - {fileID: 491668741, guid: 3770e22209738774db5a13cacb64a854, type: 3}
       panesAceptados: 00000000000000000100000002000000
-      goodEnding: As I expected.
-      badEnding: I will have my father come for you!!
+      goodEnding: Perfect.
+      badEnding: What a disappointment
       nobleza: 1
       characterRelevance: 0
     textosDiezmo: []
@@ -6016,7 +6037,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.059125, y: 0.38166666}
   m_AnchorMax: {x: 0.354, y: 0.938}
-  m_AnchoredPosition: {x: -6.9438477, y: 22.642029}
+  m_AnchoredPosition: {x: -6.9438477, y: 22.641968}
   m_SizeDelta: {x: -13.888802, y: -45.2832}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1762510563
@@ -6134,7 +6155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.69341856, y: 0.629}
   m_AnchorMax: {x: 0.9434186, y: 0.78800005}
-  m_AnchoredPosition: {x: 8.969971, y: -9.600006}
+  m_AnchoredPosition: {x: 8.969971, y: -9.599976}
   m_SizeDelta: {x: 8.521698, y: -12.5574}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1783582990
