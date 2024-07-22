@@ -83,7 +83,11 @@ public class BreadInventory : MonoBehaviour
         if (obj == actualImages[type])
         {
             actualImages[type].transform.SetParent(canvaPadre.transform);
-            if (quantitys[type] < 0) return;
+            if (quantitys[type] <= 0)
+            {
+                positions[type].GetComponentInChildren<TMP_Text>().text = "x " + (quantitys[type]);
+                return;
+            }
             quantitys[type] --;
             positions[type].GetComponentInChildren<TMP_Text>().text = "x " + (quantitys[type]+1);
             Image nuevoObjetoHijo = Instantiate(prefabs[type], canva.transform, true);
