@@ -21,6 +21,10 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private Toggle impuestos;
     [SerializeField] private ItemSlot bandeja;
     [SerializeField] private CanvasGroup panel;
+    [SerializeField] private CanvasGroup endPanel;
+    [SerializeField] private RectTransform endPos;
+    [SerializeField] private Sprite goodEnding;
+    [SerializeField] private Sprite badEnding;
     [SerializeField] private GameObject obispotext;
     [SerializeField] private List<Dias> dias;
     [SerializeField] private Image diezmo;
@@ -390,7 +394,7 @@ public class ShopManager : MonoBehaviour
     {
         textPanel.SetActive(false);
         panel.alpha = 0;
-        
+
         float t = 0;
         while (t < 1)
         {
@@ -398,8 +402,24 @@ public class ShopManager : MonoBehaviour
             panel.alpha = Mathf.Lerp(0, 1, t);
             yield return null;
         }
-        
+
+        if (final2)
+        {
+            endPanel.alpha = 0;
+
+            endPanel.gameObject.GetComponent<Image>().sprite = moral >= 0 ? goodEnding : badEnding;
+
+            float t2 = 0;
+            while (t2 < 1)
+            {
+                t2 += Time.deltaTime / duracionFade;
+                endPanel.alpha = Mathf.Lerp(0, 1, t2);
+                yield return null;
+            }
+        }
+
         obispotext.gameObject.SetActive(true);
+        if(final2) obispotext.GetComponent<RectTransform>().position = endPos.position;
         obispotext.GetComponent<TMP_Text>().text = text;
         yield return new WaitForSeconds(2.0f);
         if(final && final2)
@@ -418,7 +438,7 @@ public class ShopManager : MonoBehaviour
                 obispotext.GetComponent<TMP_Text>().text = "Your fate was not so kind; your head was displayed ourside your shop as a symbol of revolution";
             }
             yield return new WaitForSeconds(12.0f);
-            SceneManager.LoadScene("Game");
+            SceneManager.LoadScene("Menu");
 		}
         else
         {
